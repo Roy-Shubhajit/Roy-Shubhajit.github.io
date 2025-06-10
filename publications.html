@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Publications - Shubhajit Roy</title>
+    <meta name="description" content="Research publications by Shubhajit Roy on Graph Neural Networks, including work on expressivity and inference optimization.">
+
+    <!-- Theme Detection Script - Prevents FOUC/Flash -->
+    <script>
+    (function() {
+        const storedTheme = localStorage.getItem('theme');
+        const systemPrefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+        const shouldUseDark = storedTheme === 'dark' || (!storedTheme && systemPrefersDark);
+
+        if (shouldUseDark) {
+            document.documentElement.classList.add('dark-mode');
+        }
+    })();
+    </script>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="header">
+        <nav class="nav">
+            <div class="logo">
+                <a href="index.html" style="color: var(--color-primary); font-weight: 700; font-size: 1.25rem; text-decoration: none;">Shubhajit Roy</a>
+            </div>
+            <button class="mobile-nav-toggle" id="mobileToggle">☰</button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="publications.html" class="active">Publications</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="roles.html">Roles</a></li>
+                <li><a href="blogs.html">Blogs</a></li>
+                <li><a href="cv.html">CV</a></li>
+                <li><button id="themeToggle" title="Toggle theme"><span class="theme-icon">🌙</span></button></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="main">
+        <div class="container">
+            <section class="section">
+                <div class="section-header">
+                    <h1 class="section-title">Publications</h1>
+                    <p class="section-subtitle">Research contributions in Graph Neural Networks, focusing on expressivity, efficiency, and practical applications</p>
+                </div>
+
+                <div class="publications-grid">
+                    <div class="card">
+                        <div class="card-header">
+                            <div>
+                                <h3 class="card-title">FIT-GNN: Faster Inference Time for GNNs Using Coarsening</h3>
+                                <p class="card-meta">Shubhajit Roy, Hrriday Ruparel, Kishan Ved, Anirban Dasgupta • 2024</p>
+                            </div>
+                            <div class="status-badge completed">Arxiv</div>
+                        </div>
+                        <div class="card-description">
+                            This paper addresses the computational efficiency challenges in Graph Neural Networks by proposing a novel graph coarsening technique. Our approach significantly reduces inference time while maintaining model performance, making GNNs more practical for real-world applications with large-scale graphs.
+                        </div>
+                        <div class="card-tags">
+                            <span class="tag">Graph Neural Networks</span>
+                            <span class="tag">Inference Optimization</span>
+                            <span class="tag">Graph Coarsening</span>
+                            <span class="tag">Performance</span>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-header">
+                            <div>
+                                <h3 class="card-title">Improving Expressivity of Graph Neural Networks using Localization</h3>
+                                <p class="card-meta">Anant Kumar, Shrutimoy Das, Shubhajit Roy, Binita Maity, Anirban Dasgupta • 2023</p>
+                            </div>
+                            <div class="status-badge completed">Arxiv</div>
+                        </div>
+                        <div class="card-description">
+                            We propose a novel approach to enhance the expressivity of Graph Neural Networks beyond the traditional Weisfeiler-Leman hierarchy limitations. Our localization-based method improves the ability of GNNs to distinguish between different graph structures while maintaining computational efficiency.
+                        </div>
+                        <div class="card-tags">
+                            <span class="tag">Graph Neural Networks</span>
+                            <span class="tag">Expressivity</span>
+                            <span class="tag">Weisfeiler-Leman</span>
+                            <span class="tag">Localization</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div style="margin-top: 3rem; text-align: center;">
+                    <h2 style="margin-bottom: 1rem;">Research Interests</h2>
+                    <div class="card">
+                        <p>My research focuses on advancing the theoretical understanding and practical applications of Graph Neural Networks. I am particularly interested in:</p>
+                        <ul style="text-align: left; margin: 1rem 0; padding-left: 2rem;">
+                            <li><strong>Expressivity Enhancement</strong>: Developing methods to improve GNN expressivity beyond current theoretical limitations</li>
+                            <li><strong>Inference Optimization</strong>: Creating efficient algorithms for faster GNN inference in large-scale applications</li>
+                            <li><strong>Streaming Graph Learning</strong>: Addressing challenges in dynamic graph scenarios and catastrophic forgetting</li>
+                            <li><strong>Applications</strong>: Weather prediction, social network analysis, and knowledge graph construction</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Curriculum Vitae - Shubhajit Roy</title>
+    <meta name="description" content="Complete curriculum vitae of Shubhajit Roy, PhD student in Computer Science at IIT Gandhinagar.">
+
+    <!-- Theme Detection Script - Prevents FOUC/Flash -->
+    <script>
+    (function() {
+        const storedTheme = localStorage.getItem('theme');
+        const systemPrefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+        const shouldUseDark = storedTheme === 'dark' || (!storedTheme && systemPrefersDark);
+
+        if (shouldUseDark) {
+            document.documentElement.classList.add('dark-mode');
+        }
+    })();
+    </script>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="header">
+        <nav class="nav">
+            <div class="logo">
+                <a href="index.html" style="color: var(--color-primary); font-weight: 700; font-size: 1.25rem; text-decoration: none;">Shubhajit Roy</a>
+            </div>
+            <button class="mobile-nav-toggle" id="mobileToggle">☰</button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="publications.html">Publications</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="roles.html">Roles</a></li>
+                <li><a href="blogs.html">Blogs</a></li>
+                <li><a href="cv.html" class="active">CV</a></li>
+                <li><button id="themeToggle" title="Toggle theme"><span class="theme-icon">🌙</span></button></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="main">
+        <div class="container">
+            <section class="section">
+                <div class="section-header">
+                    <h1 class="section-title">Curriculum Vitae</h1>
+                    <p class="section-subtitle">Complete academic and professional background</p>
+                    <div style="margin-top: 1rem;">
+                        <!--<a href="#" class="btn btn--primary">📋 Download PDF</a>-->
+                        <a href="CV.pdf" download="ShubhajitRoy_CV.pdf" class="btn btn--primary">
+                            📋 Download CV
+                          </a>
+                    </div>
+                </div>
+
+                <!-- Education Section -->
+                <div class="cv-section">
+                    <h3>Education</h3>
+
+                    <div class="cv-item">
+                        <h4>Ph.D in Computer Science and Engineering</h4>
+                        <div class="institution">Indian Institute of Technology Gandhinagar</div>
+                        <div class="date">July 2022 - Present</div>
+                        <div class="description">
+                            <strong>CPI:</strong> 9.07<br>
+                            <strong>Research Focus:</strong> Graph Neural Networks, Expressivity, Inference Optimization<br>
+                            <strong>Advisor:</strong> Prof. Anirban Dasgupta
+                        </div>
+                    </div>
+
+                    <div class="cv-item">
+                        <h4>M.Sc in Mathematics and Computing with Major in Computer Science</h4>
+                        <div class="institution">Indian Association for the Cultivation of Science</div>
+                        <div class="date">October 2020 - July 2022</div>
+                        <div class="description">
+                            <strong>CGPA:</strong> 8.42<br>
+                            <strong>Location:</strong> Kolkata, India
+                        </div>
+                    </div>
+
+                    <div class="cv-item">
+                        <h4>B.Sc in Mathematics</h4>
+                        <div class="institution">Presidency University</div>
+                        <div class="date">June 2017 - August 2020</div>
+                        <div class="description">
+                            <strong>CGPA:</strong> 6.95<br>
+                            <strong>Location:</strong> Kolkata, India
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Awards and Achievements -->
+                <div class="cv-section">
+                    <h3>Awards and Achievements</h3>
+
+                    <div class="cv-item">
+                        <h4>UGC-NET 2022 - JRF Qualified</h4>
+                        <div class="institution">National Testing Agency (NTA)</div>
+                        <div class="description">
+                            Qualified for Junior Research Fellowship and Assistant Professor eligibility
+                        </div>
+                    </div>
+
+                    <div class="cv-item">
+                        <h4>GATE 2022</h4>
+                        <div class="institution">Indian Institute of Science</div>
+                        <div class="description">
+                            Successfully cleared Graduate Aptitude Test in Engineering
+                        </div>
+                    </div>
+
+                    <div class="cv-item">
+                        <h4>Hacktoberfest 2022 & 2021</h4>
+                        <div class="institution">GitHub and Digital Ocean</div>
+                        <div class="description">
+                            Successfully completed Hacktoberfest by contributing to open source projects on GitHub
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Relevant Coursework -->
+                <div class="cv-section">
+                    <h3>Relevant Coursework</h3>
+
+                    <div class="cv-item">
+                        <div class="description">
+                            <ul style="list-style-type: disc; margin-left: 2rem;">
+                                <li>Social and Complex Networks</li>
+                                <li>Machine Learning</li>
+                                <li>Optimization in ML</li>
+                                <li>GNN and Transformers</li>
+                                <li>Understanding Large Language Models</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Events Attended -->
+                <div class="cv-section">
+                    <h3>Events Attended</h3>
+
+                    <div class="cv-item">
+                        <h4>Neuroscience, Data Science and Dynamics</h4>
+                        <div class="institution">International Institute of Information Technology Bangalore</div>
+                        <div class="date">April 2025</div>
+                    </div>
+
+                    <div class="cv-item">
+                        <h4>Indian Symposium on Machine Learning</h4>
+                        <div class="institution">BITS Pilani Goa Campus</div>
+                        <div class="date">December 2024</div>
+                    </div>
+
+                    <div class="cv-item">
+                        <h4>Pingala Interactions in Computing 2024</h4>
+                        <div class="institution">Infosys Ltd Mysore</div>
+                        <div class="date">February 2024</div>
+                    </div>
+
+                    <div class="cv-item">
+                        <h4>CODS-COMAD 2024</h4>
+                        <div class="institution">International Institute of Information Technology Bangalore</div>
+                        <div class="date">January 2024</div>
+                    </div>
+
+                    <div class="cv-item">
+                        <h4>Data Science: Probabilistic and Optimization Methods</h4>
+                        <div class="institution">International Center of Theoretical Sciences, Bangalore</div>
+                        <div class="date">July 2023</div>
+                    </div>
+                </div>
+
+                <!-- Certifications -->
+                <div class="cv-section">
+                    <h3>Certifications</h3>
+
+                    <div class="cv-item">
+                        <h4>Elements of AI</h4>
+                        <div class="institution">University of Helsinki</div>
+                        <div class="date">June 2020</div>
+                        <div class="description">
+                            Introduction to AI fundamentals, machine learning, and neural networks
+                        </div>
+                    </div>
+
+                    <div class="cv-item">
+                        <h4>Introduction to IoT</h4>
+                        <div class="institution">Cisco Networking Academy</div>
+                        <div class="date">August 2020</div>
+                        <div class="description">
+                            Internet of Things concepts and digital transformation technologies
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Technical Skills -->
+                <div class="cv-section">
+                    <h3>Technical Skills</h3>
+
+                    <div class="cv-item">
+                        <div class="description">
+                            <strong>Programming Languages:</strong> Python, R, Java, C++<br>
+                            <strong>Machine Learning:</strong> PyTorch, TensorFlow, PyTorch Geometric, scikit-learn<br>
+                            <strong>Data Science:</strong> Pandas, NumPy, Matplotlib, Seaborn<br>
+                            <strong>Tools:</strong> Git, Docker, Jupyter, LaTeX<br>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blogs - Shubhajit Roy</title>
+    <meta name="description" content="Academic insights and research reflections on Graph Neural Networks and machine learning.">
+
+    <!-- Theme Detection Script - Prevents FOUC/Flash -->
+    <script>
+    (function() {
+        const storedTheme = localStorage.getItem('theme');
+        const systemPrefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+        const shouldUseDark = storedTheme === 'dark' || (!storedTheme && systemPrefersDark);
+
+        if (shouldUseDark) {
+            document.documentElement.classList.add('dark-mode');
+        }
+    })();
+    </script>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="header">
+        <nav class="nav">
+            <div class="logo">
+                <a href="index.html" style="color: var(--color-primary); font-weight: 700; font-size: 1.25rem; text-decoration: none;">Shubhajit Roy</a>
+            </div>
+            <button class="mobile-nav-toggle" id="mobileToggle">☰</button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="publications.html">Publications</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="roles.html">Roles</a></li>
+                <li><a href="blogs.html" class="active">Blogs</a></li>
+                <li><a href="cv.html">CV</a></li>
+                <li><button id="themeToggle" title="Toggle theme"><span class="theme-icon">🌙</span></button></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="main">
+        <div class="container">
+            <section class="section">
+                <div class="section-header">
+                    <h1 class="section-title">Academic Blog</h1>
+                    <p class="section-subtitle">Insights and reflections on Graph Neural Networks, research, and academic life</p>
+                </div>
+
+                <!--<div class="blogs-grid">
+                    <div class="card">
+                        <div class="blog-meta">
+                            <span class="blog-date">March 15, 2024</span>
+                            <span class="blog-category">Technical</span>
+                            <span class="blog-reading-time">8 min read</span>
+                        </div>
+                        <h3 class="card-title">Understanding GNN Expressivity: Beyond the Weisfeiler-Leman Hierarchy</h3>
+                        <div class="card-description">
+                            An in-depth exploration of the theoretical foundations of Graph Neural Network expressivity. We discuss the limitations imposed by the Weisfeiler-Leman test and explore recent advances in developing more expressive GNN architectures that can distinguish between a broader class of graph structures.
+                        </div>
+                        <div class="card-tags">
+                            <span class="tag">Graph Theory</span>
+                            <span class="tag">Expressivity</span>
+                            <span class="tag">Weisfeiler-Leman</span>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="blog-meta">
+                            <span class="blog-date">February 28, 2024</span>
+                            <span class="blog-category">Research</span>
+                            <span class="blog-reading-time">6 min read</span>
+                        </div>
+                        <h3 class="card-title">FIT-GNN: Making Graph Neural Networks Faster Through Smart Coarsening</h3>
+                        <div class="card-description">
+                            A detailed discussion of our recent work on accelerating GNN inference through graph coarsening techniques. We explore the trade-offs between computational efficiency and model performance, and demonstrate how intelligent graph reduction can maintain accuracy while significantly reducing inference time.
+                        </div>
+                        <div class="card-tags">
+                            <span class="tag">Performance</span>
+                            <span class="tag">Optimization</span>
+                            <span class="tag">Graph Coarsening</span>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="blog-meta">
+                            <span class="blog-date">January 10, 2024</span>
+                            <span class="blog-category">Personal</span>
+                            <span class="blog-reading-time">5 min read</span>
+                        </div>
+                        <h3 class="card-title">Reflections on My PhD Journey: Lessons Learned and Roads Ahead</h3>
+                        <div class="card-description">
+                            Personal insights from my ongoing PhD experience at IIT Gandhinagar. I share challenges faced in research, the importance of collaboration, and lessons learned about perseverance in academic research. This post also discusses the balance between theoretical understanding and practical applications in Graph Neural Networks.
+                        </div>
+                        <div class="card-tags">
+                            <span class="tag">PhD Life</span>
+                            <span class="tag">Research</span>
+                            <span class="tag">Academic Journey</span>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="blog-meta">
+                            <span class="blog-date">December 20, 2023</span>
+                            <span class="blog-category">Industry</span>
+                            <span class="blog-reading-time">7 min read</span>
+                        </div>
+                        <h3 class="card-title">Machine Learning Trends 2024: What's Next for Graph Neural Networks?</h3>
+                        <div class="card-description">
+                            An analysis of emerging trends in machine learning with a focus on Graph Neural Networks. We examine the increasing adoption of GNNs in industry applications, from recommendation systems to drug discovery, and discuss future research directions that could bridge the gap between theory and practice.
+                        </div>
+                        <div class="card-tags">
+                            <span class="tag">Industry Trends</span>
+                            <span class="tag">Future Research</span>
+                            <span class="tag">Applications</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div style="text-align: center; margin-top: 3rem;">
+                    <p style="color: var(--color-text-secondary); font-style: italic;">
+                        More blog posts coming soon! Follow my research journey and insights on Graph Neural Networks.
+                    </p>
+                </div>-->
+                <div style="text-align: center">
+                    Uploading Soon !!!
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>

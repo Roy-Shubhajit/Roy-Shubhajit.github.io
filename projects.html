@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects - Shubhajit Roy</title>
+    <meta name="description" content="Research projects by Shubhajit Roy involving Graph Neural Networks, weather prediction, and knowledge graph construction.">
+
+    <!-- Theme Detection Script - Prevents FOUC/Flash -->
+    <script>
+    (function() {
+        const storedTheme = localStorage.getItem('theme');
+        const systemPrefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+        const shouldUseDark = storedTheme === 'dark' || (!storedTheme && systemPrefersDark);
+
+        if (shouldUseDark) {
+            document.documentElement.classList.add('dark-mode');
+        }
+    })();
+    </script>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="header">
+        <nav class="nav">
+            <div class="logo">
+                <a href="index.html" style="color: var(--color-primary); font-weight: 700; font-size: 1.25rem; text-decoration: none;">Shubhajit Roy</a>
+            </div>
+            <button class="mobile-nav-toggle" id="mobileToggle">☰</button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="publications.html">Publications</a></li>
+                <li><a href="projects.html" class="active">Projects</a></li>
+                <li><a href="roles.html">Roles</a></li>
+                <li><a href="blogs.html">Blogs</a></li>
+                <li><a href="cv.html">CV</a></li>
+                <li><button id="themeToggle" title="Toggle theme"><span class="theme-icon">🌙</span></button></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="main">
+        <div class="container">
+            <section class="section">
+                <div class="section-header">
+                    <h1 class="section-title">Research Projects</h1>
+                    <p class="section-subtitle">Ongoing and completed research work in Graph Neural Networks and their applications</p>
+                </div>
+
+                <div class="projects-grid">
+                    <div class="card">
+                        <div class="card-header">
+                            <div>
+                                <h3 class="card-title">Graph Neural Network for Weather Data Prediction</h3>
+                                <p class="card-meta">February 2023 - Present • Prof. Anirban Dasgupta</p>
+                            </div>
+                            <div class="status-badge active">Active</div>
+                        </div>
+                        <div class="card-description">
+                            Developing GNN-based models for predicting weather statistics using spatial-temporal graph representations. The project addresses challenges in streaming graph learning, including catastrophic forgetting and memory consumption optimization. We model weather stations as nodes with geographical connections to capture spatial dependencies in weather patterns.
+                        </div>
+                        <div class="card-tags">
+                            <span class="tag">Graph Neural Networks</span>
+                            <span class="tag">Weather Prediction</span>
+                            <span class="tag">Streaming Learning</span>
+                            <span class="tag">Memory Optimization</span>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-header">
+                            <div>
+                                <h3 class="card-title">Joint Entity Recognition and Relation Extraction</h3>
+                                <p class="card-meta">September 2021 - Present • Dr. Partha Basuchowdhuri</p>
+                            </div>
+                            <div class="status-badge active">Active</div>
+                        </div>
+                        <div class="card-description">
+                            Developing GNN-based approaches for simultaneous entity recognition and relation extraction from natural language text. The project aims to construct knowledge graphs by leveraging graph dependencies between words in sentences. Our model uses syntactic and semantic relationships to improve both entity identification and relation classification accuracy.
+                        </div>
+                        <div class="card-tags">
+                            <span class="tag">Natural Language Processing</span>
+                            <span class="tag">Knowledge Graphs</span>
+                            <span class="tag">Entity Recognition</span>
+                            <span class="tag">Relation Extraction</span>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-header">
+                            <div>
+                                <h3 class="card-title">Study of Social Networks using GNN</h3>
+                                <p class="card-meta">September 2022 - November 2022 • Prof. Anirban Dasgupta</p>
+                            </div>
+                            <div class="status-badge completed">Completed</div>
+                        </div>
+                        <div class="card-description">
+                            Applied Graph Neural Networks to predict various social network properties including average node degree, clustering coefficients, and average path lengths. The study analyzed how node and edge additions/deletions affect graph structure and compared GNN predictions with existing theoretical models and baseline approaches.
+                        </div>
+                        <div class="card-tags">
+                            <span class="tag">Social Network Analysis</span>
+                            <span class="tag">Graph Properties</span>
+                            <span class="tag">Network Dynamics</span>
+                            <span class="tag">Comparative Analysis</span>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-header">
+                            <div>
+                                <h3 class="card-title">MedEx - Pharmacy Database Software</h3>
+                                <p class="card-meta">June 2021 - July 2021 • Prof. Paramartha Dutta</p>
+                            </div>
+                            <div class="status-badge completed">Completed</div>
+                        </div>
+                        <div class="card-description">
+                            Developed a comprehensive software solution for online pharmaceutical database management. Implemented SRS documentation and prototype code for transaction management, including features for customer account management, digital transactions, credit payment systems, and transaction history tracking. Collaborated with team members as part of IACS Computer Science Unit project.
+                        </div>
+                        <div class="card-tags">
+                            <span class="tag">Database Management</span>
+                            <span class="tag">Software Development</span>
+                            <span class="tag">Transaction Systems</span>
+                            <span class="tag">Team Collaboration</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
