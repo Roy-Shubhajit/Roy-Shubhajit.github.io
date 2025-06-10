@@ -626,6 +626,10 @@ html.dark-mode .profile-photo-placeholder:hover {
   margin-bottom: 0.5rem;
 }
 
+.card-title a {
+  color: inherit;
+  text-decoration: none;
+}
 .card-meta {
   font-size: 0.9rem;
   color: var(--color-text-secondary);
