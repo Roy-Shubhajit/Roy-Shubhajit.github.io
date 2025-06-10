@@ -104,7 +104,7 @@ class PortfolioApp {
 
         const recentUpdates = [
             {
-                title: "Paper Accepted: FIT-GNN",
+                title: "Paper Published: FIT-GNN",
                 description: "Our latest paper on faster inference time for GNNs using coarsening has been accepted to ArXiv",
                 date: "2024-10-19",
                 type: "publication",
