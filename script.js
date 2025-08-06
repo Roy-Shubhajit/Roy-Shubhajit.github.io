@@ -112,6 +112,14 @@ class PortfolioApp {
                 icon: "📄"
             },
             {
+                title: "Ethics Reviewer - NeurIPS 2025",
+                description: "Served as Ethics Reviewer for NeurIPS 2025 for Main Track and Dataset Track",
+                date: "2025-07-20",
+                type: "service",
+                link: "roles.html",
+                icon: "🤝"
+            },
+            {
                 title: "Teaching Assistant - Scalable Data Science",
                 description: "Started as TA for Scalable Data Science course at IIT Gandhinagar",
                 date: "2025-07-01",
