@@ -104,6 +104,14 @@ class PortfolioApp {
 
         const recentUpdates = [
             {
+                title: "Recieved Best Poster Award",
+                description: "Recieved for Best Poster presentation on Scalable Graph Neural Networks",
+                date: "2025-08-15",
+                type: "Awards",
+                link: "cv.html",
+                icon: "🏅"
+            },
+            {
                 title: "Paper Published: FIT-GNN",
                 description: "Our latest paper on faster inference time for GNNs using coarsening has been accepted to ArXiv",
                 date: "2024-10-19",
