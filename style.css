@@ -86,6 +86,13 @@ html.dark-mode body {
   align-items: center;
 }
 
+.role-title {
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;          /* space between text and icon */
+  margin: 0;           /* keep headings tidy */
+}
+
 .nav-links a {
   color: var(--color-text);
   text-decoration: none;
