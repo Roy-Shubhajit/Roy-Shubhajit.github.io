@@ -105,15 +105,15 @@ class PortfolioApp {
         const recentUpdates = [
             {
                 title: "Paper Published: Local Fragments, Global Gains",
-                description: "Our lates paper on subgraph counting using GNNs has been accepted to DiffCoAlg@NeurIPS 2025",
+                description: "Our latest paper on subgraph counting using GNNs has been accepted to DiffCoAlg@NeurIPS 2025",
                 date: "2025-09-23",
                 type: "publication",
                 link: "publications.html",
                 icon: "📄"
             },
             {
-                title: "Recieved Best Poster Award",
-                description: "Recieved for Best Poster presentation on Scalable Graph Neural Networks",
+                title: "Received Best Poster Award",
+                description: "Received for Best Poster presentation on Scalable Graph Neural Networks",
                 date: "2025-08-15",
                 type: "Awards",
                 link: "cv.html",
