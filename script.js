@@ -104,6 +104,14 @@ class PortfolioApp {
 
         const recentUpdates = [
             {
+                title: "Reviewer - GCLR @ AAAI 2026",
+                description: "Served as Reviewer for Workshop on Graphs and more Complex Structures For Learning and Reasoning 2026 at AAAI 2026",
+                date: "2025-10-24",
+                type: "service",
+                link: "roles.html",
+                icon: "🤝"
+            },
+            {
                 title: "Paper Published: Local Fragments, Global Gains",
                 description: "Our latest paper on subgraph counting using GNNs has been accepted to DiffCoAlg@NeurIPS 2025",
                 date: "2025-09-23",
@@ -128,8 +136,8 @@ class PortfolioApp {
                 icon: "📄"
             },
             {
-                title: "Ethics Reviewer - NeurIPS 2025",
-                description: "Served as Ethics Reviewer for NeurIPS 2025 for Main Track and Dataset Track",
+                title: "Reviewer - NeurIPS 2025",
+                description: "Served as Reviewer for NeurIPS 2025 for Main Track and Dataset Track",
                 date: "2025-07-20",
                 type: "service",
                 link: "roles.html",
