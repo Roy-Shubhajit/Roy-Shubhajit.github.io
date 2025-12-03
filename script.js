@@ -104,6 +104,14 @@ class PortfolioApp {
 
         const recentUpdates = [
             {
+                title: "Reviewer - Empowering Global South AI @ AAAI 2026",
+                description: "Served as Reviewer for Workshop on Empowering Global South AI at AAAI 2026",
+                date: "2025-12-1",
+                type: "service",
+                link: "roles.html",
+                icon: "🤝"
+            },
+            {
                 title: "Reviewer - GCLR @ AAAI 2026",
                 description: "Served as Reviewer for Workshop on Graphs and more Complex Structures For Learning and Reasoning 2026 at AAAI 2026",
                 date: "2025-10-24",
