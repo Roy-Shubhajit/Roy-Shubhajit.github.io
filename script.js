@@ -104,6 +104,14 @@ class PortfolioApp {
 
         const recentUpdates = [
             {
+                title: "Attended: Frontiers of Graph Algorithms",
+                description: "Attended workshop on Dynamic, Distributed, and Streaming Algorithms on Graphs at IISc Bangalore",
+                date: "2025-12-08",
+                type: "event",
+                link: "cv.html",
+                icon: "🕸️"
+            },
+            {
                 title: "Reviewer - Empowering Global South AI @ AAAI 2026",
                 description: "Served as Reviewer for Workshop on Empowering Global South AI at AAAI 2026",
                 date: "2025-12-01",
