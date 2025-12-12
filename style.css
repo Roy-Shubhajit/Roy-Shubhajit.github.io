@@ -473,7 +473,7 @@ html.dark-mode body {
 @media (max-width: 768px) {
   .nav-links {
     position: fixed;
-    top: 80px;
+    top: 60px;
     left: 0;
     right: 0;
     background: var(--color-background);
