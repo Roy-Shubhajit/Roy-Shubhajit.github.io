@@ -104,6 +104,14 @@ class PortfolioApp {
 
         const recentUpdates = [
             {
+                title: "Attended: IndoML 2025",
+                description: "Attended symposium on Machine Learning at BITS Pilani Hyderabad",
+                date: "2025-12-19",
+                type: "event",
+                link: "cv.html",
+                icon: "🤖"
+            },
+            {
                 title: "Attended: Frontiers of Graph Algorithms",
                 description: "Attended workshop on Dynamic, Distributed, and Streaming Algorithms on Graphs at IISc Bangalore",
                 date: "2025-12-08",
