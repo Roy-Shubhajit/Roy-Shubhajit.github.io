@@ -20,6 +20,9 @@
     </script>
 
     <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
     <header class="header">
@@ -27,7 +30,11 @@
             <div class="logo">
                 <a href="index.html" style="color: var(--color-primary); font-weight: 700; font-size: 1.25rem; text-decoration: none;">Shubhajit Roy</a>
             </div>
-            <button class="mobile-nav-toggle" id="mobileToggle">☰</button>
+            <button class="mobile-nav-toggle" id="mobileToggle" aria-label="Toggle navigation">
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+            </button>
             <ul class="nav-links" id="navLinks">
                 <li><a href="index.html">Home</a></li>
                 <li><a href="publications.html" class="active">Publications</a></li>
@@ -43,23 +50,23 @@
     <main class="main">
         <div class="container">
             <section class="section">
-                <div class="section-header">
+                <div class="section-header reveal">
                     <h1 class="section-title">Publications</h1>
                     <p class="section-subtitle">Research contributions in Graph Neural Networks, focusing on expressivity, efficiency, and practical applications</p>
                 </div>
 
-                <div class="publications-grid">
-                    <div class="card">
+                <div class="publications-grid stagger-children">
+                    <div class="card reveal">
                         <div class="card-header">
-                            <div>
-                                <h3 class="card-title">
-                                    <a href="https://arxiv.org/abs/2410.15001" target="_blank" rel="noopener noreferrer">
-                                      FIT-GNN: Faster Inference Time for GNNs that 'FIT' in Memory Using Coarsening
-                                    </a>
-                                  </h3>
-                                <p class="card-meta">Shubhajit Roy, Hrriday Ruparel, Kishan Ved, Anirban Dasgupta • 2024</p>
+                            <h3 class="card-title">
+                                <a href="https://arxiv.org/abs/2410.15001" target="_blank" rel="noopener noreferrer">
+                                  FIT-GNN: Faster Inference Time for GNNs that 'FIT' in Memory Using Coarsening
+                                </a>
+                            </h3>
+                            <p class="card-meta">Shubhajit Roy, Hrriday Ruparel, Kishan Ved, Anirban Dasgupta • 2024</p>
+                            <div class="card-badges">
+                                <span class="status-badge completed">Arxiv</span>
                             </div>
-                            <div class="status-badge completed">Arxiv</div>
                         </div>
                         <div class="card-description">
                             This paper addresses the computational efficiency challenges in Graph Neural Networks by proposing a novel graph coarsening technique. Our approach significantly reduces inference time and memory while maintaining model performance, making GNNs more practical for real-world applications with large-scale graphs.
@@ -72,18 +79,18 @@
                         </div>
                     </div>
 
-                    <div class="card">
+                    <div class="card reveal">
                         <div class="card-header">
-                            <div>
-                                <h3 class="card-title">
-                                    <a href="https://arxiv.org/abs/2305.19659" target="_blank" rel="noopener noreferrer">
-                                        Local Fragments, Global Gains: Subgraph Counting using Graph Neural Networks
-                                    </a>
-                                  </h3>
-                                <h3 class="card-title"></h3>
-                                <p class="card-meta">Shubhajit Roy, Shrutimoy Das, Binita Maity, Anant Kumar, Anirban Dasgupta • 2025</p>
+                            <h3 class="card-title">
+                                <a href="https://arxiv.org/abs/2305.19659" target="_blank" rel="noopener noreferrer">
+                                    Local Fragments, Global Gains: Subgraph Counting using Graph Neural Networks
+                                </a>
+                            </h3>
+                            <p class="card-meta">Shubhajit Roy, Shrutimoy Das, Binita Maity, Anant Kumar, Anirban Dasgupta • 2025</p>
+                            <div class="card-badges">
+                                <span class="status-badge completed">DiffCoAlg @ NeurIPS 2025</span>
+                                <span class="status-badge completed">Web&Graph @ WSDM 2026</span>
                             </div>
-                            <div class="status-badge completed">DiffCoAlg@Neurips</div>
                         </div>
                         <div class="card-description">
                             We propose a novel approach to enhance the expressivity of Graph Neural Networks beyond the traditional Weisfeiler-Leman hierarchy limitations. Our localization-based method improves the ability of GNNs to distinguish between different graph structures while maintaining computational efficiency.
@@ -97,9 +104,9 @@
                     </div>
                 </div>
 
-                <div style="margin-top: 3rem; text-align: center;">
+                <div class="reveal" style="margin-top: 3rem; text-align: center;">
                     <h2 style="margin-bottom: 1rem;">Research Interests</h2>
-                    <div class="card">
+                    <div class="card reveal-scale">
                         <p>My research focuses on advancing the theoretical understanding and practical applications of Graph Neural Networks. I am particularly interested in:</p>
                         <ul style="text-align: left; margin: 1rem 0; padding-left: 2rem;">
                             <li><strong>Expressivity Enhancement</strong>: Developing methods to improve GNN expressivity beyond current theoretical limitations</li>

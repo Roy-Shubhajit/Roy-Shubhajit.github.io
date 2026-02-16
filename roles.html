@@ -20,6 +20,9 @@
     </script>
 
     <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
     <header class="header">
@@ -27,7 +30,11 @@
             <div class="logo">
                 <a href="index.html" style="color: var(--color-primary); font-weight: 700; font-size: 1.25rem; text-decoration: none;">Shubhajit Roy</a>
             </div>
-            <button class="mobile-nav-toggle" id="mobileToggle">☰</button>
+            <button class="mobile-nav-toggle" id="mobileToggle" aria-label="Toggle navigation">
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+            </button>
             <ul class="nav-links" id="navLinks">
                 <li><a href="index.html">Home</a></li>
                 <li><a href="publications.html">Publications</a></li>
@@ -43,13 +50,13 @@
     <main class="main">
         <div class="container">
             <section class="section">
-                <div class="section-header">
+                <div class="section-header reveal">
                     <h1 class="section-title">Roles & Responsibilities</h1>
                     <p class="section-subtitle">Academic service, teaching experience, and professional contributions</p>
                 </div>
 
-                <div class="roles-container">
-                    <div class="role-entry">
+                <div class="roles-container stagger-children">
+                    <div class="role-entry reveal">
                         <div class="role-meta">
                             <div>
                                 <h3 class="role-title">Reviewer - Empowering Global South AI @ AAAI 2026</h3>
@@ -62,7 +69,7 @@
                         </div>
                     </div>
 
-                    <div class="role-entry">
+                    <div class="role-entry reveal">
                         <div class="role-meta">
                             <div>
                                 <h3 class="role-title">Reviewer - GCLR @ AAAI 2026</h3>
@@ -75,7 +82,7 @@
                         </div>
                     </div>
 
-                    <div class="role-entry">
+                    <div class="role-entry reveal">
                         <div class="role-meta">
                             <div>
                                 <h3 class="role-title">Reviewer - NeurIPS 2025</h3>
@@ -88,7 +95,7 @@
                         </div>
                     </div>
                     
-                    <div class="role-entry">
+                    <div class="role-entry reveal">
                         <div class="role-meta">
                             <div>
                                 <h3 class="role-title">Teaching Assistant - Scalable Data Science</h3>
@@ -101,28 +108,29 @@
                         </div>
                     </div>
 
-                    <div class="role-entry">
-                    <div class="role-meta">
-                        <div>
-                        <h3 class="role-title">
-                            Tutorial - Graph Neural Networks: Hands On
-                            <a href="https://youtu.be/QL3kvLaGbRM" target="_blank" class="social-link youtube" title="YouTube">
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                                    <path d="M23.498 6.186a2.974 2.974 0 0 0-2.09-2.103C19.64 3.5 12 3.5 12 3.5s-7.64 0-9.408.583A2.974 2.974 0 0 0 .502 6.186 31.58 31.58 0 0 0 0 12a31.58 31.58 0 0 0 .502 5.814 2.974 2.974 0 0 0 2.09 2.103C4.36 20.5 12 20.5 12 20.5s7.64 0 9.408-.583a2.974 2.974 0 0 0 2.09-2.103A31.58 31.58 0 0 0 24 12a31.58 31.58 0 0 0-.502-5.814zM9.75 15.5v-7l6 3.5-6 3.5z"/>
-                                </svg>
-                            </a>
-                        </h3>
-                        <p class="role-institution">Indian Institute of Technology Gandhinagar</p>
+                    <div class="role-entry reveal">
+                        <div class="role-meta">
+                            <div>
+                                <h3 class="role-title">Tutorial - Graph Neural Networks: Hands On</h3>
+                                <p class="role-institution">Indian Institute of Technology Gandhinagar</p>
+                            </div>
+                            <div class="role-footer">
+                                <div class="role-date">June 2025</div>
+                                <a href="https://youtu.be/QL3kvLaGbRM" target="_blank" class="role-link-item" title="YouTube">
+                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                                        <path d="M23.498 6.186a2.974 2.974 0 0 0-2.09-2.103C19.64 3.5 12 3.5 12 3.5s-7.64 0-9.408.583A2.974 2.974 0 0 0 .502 6.186 31.58 31.58 0 0 0 0 12a31.58 31.58 0 0 0 .502 5.814 2.974 2.974 0 0 0 2.09 2.103C4.36 20.5 12 20.5 12 20.5s7.64 0 9.408-.583a2.974 2.974 0 0 0 2.09-2.103A31.58 31.58 0 0 0 24 12a31.58 31.58 0 0 0-.502-5.814zM9.75 15.5v-7l6 3.5-6 3.5z"/>
+                                    </svg>
+                                    <span>Watch Tutorial</span>
+                                </a>
+                            </div>
                         </div>
-                        <div class="role-date">June 2025</div>
-                    </div>
-                    <div class="role-description">
-                        Conducted hands-on tutorial sessions on Graph Neural Networks, providing practical implementation guidance and theoretical understanding to participants. This tutorial is conducted as a part of ACM Summer School: AI for Social Good.
-                    </div>
+                        <div class="role-description">
+                            Conducted hands-on tutorial sessions on Graph Neural Networks, providing practical implementation guidance and theoretical understanding to participants. This tutorial is conducted as a part of ACM Summer School: AI for Social Good.
+                        </div>
                     </div>
 
 
-                    <div class="role-entry">
+                    <div class="role-entry reveal">
                         <div class="role-meta">
                             <div>
                                 <h3 class="role-title">Teaching Assistant - Introduction to Data Science</h3>
@@ -135,7 +143,7 @@
                         </div>
                     </div>
 
-                    <div class="role-entry">
+                    <div class="role-entry reveal">
                         <div class="role-meta">
                             <div>
                                 <h3 class="role-title">Ethics Reviewer - NeurIPS 2024</h3>
@@ -148,7 +156,7 @@
                         </div>
                     </div>
 
-                    <div class="role-entry">
+                    <div class="role-entry reveal">
                         <div class="role-meta">
                             <div>
                                 <h3 class="role-title">Volunteer - FSTTCS 2024</h3>
@@ -161,7 +169,7 @@
                         </div>
                     </div>
 
-                    <div class="role-entry">
+                    <div class="role-entry reveal">
                         <div class="role-meta">
                             <div>
                                 <h3 class="role-title">Ethics Reviewer - NeurIPS 2023</h3>
@@ -174,7 +182,7 @@
                         </div>
                     </div>
 
-                    <div class="role-entry">
+                    <div class="role-entry reveal">
                         <div class="role-meta">
                             <div>
                                 <h3 class="role-title">Teaching Assistant - Introduction to Data Science</h3>
@@ -187,7 +195,7 @@
                         </div>
                     </div>
 
-                    <div class="role-entry">
+                    <div class="role-entry reveal">
                         <div class="role-meta">
                             <div>
                                 <h3 class="role-title">Volunteer - Indian Symposium on Machine Learning</h3>
@@ -200,7 +208,7 @@
                         </div>
                     </div>
 
-                    <div class="role-entry">
+                    <div class="role-entry reveal">
                         <div class="role-meta">
                             <div>
                                 <h3 class="role-title">Teaching Assistant - Ordinary and Partial Differential Equations</h3>

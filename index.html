@@ -21,6 +21,9 @@
     </script>
 
     <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
     <header class="header">
@@ -28,7 +31,11 @@
             <div class="logo">
                 <a href="index.html" style="color: var(--color-primary); font-weight: 700; font-size: 1.25rem; text-decoration: none;">Shubhajit Roy</a>
             </div>
-            <button class="mobile-nav-toggle" id="mobileToggle">☰</button>
+            <button class="mobile-nav-toggle" id="mobileToggle" aria-label="Toggle navigation">
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+            </button>
             <ul class="nav-links" id="navLinks">
                 <li><a href="index.html" class="active">Home</a></li>
                 <li><a href="publications.html">Publications</a></li>
@@ -52,7 +59,7 @@
                             <div class="profile-photo-placeholder" style="display: none;">📷</div>
                         </div>
 
-                        <div class="social-links">
+                        <div class="social-links" style="animation: fadeInUp 0.7s var(--ease-out) 0.35s both;">
                             <a href="mailto:royshubhajit@iitgn.ac.in" class="social-link email" title="Email">
                                 <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
                                     <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.89 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
@@ -86,14 +93,14 @@
                         </div>
 
                         <h1 class="hero-title">Shubhajit Roy</h1>
-                        <p class="hero-subtitle">PhD Student in Computer Science</p>
+                        <p class="hero-subtitle">PhD Student in Computer Science and Engineering</p>
                         <p class="hero-institution">Indian Institute of Technology Gandhinagar</p>
                         <p class="hero-description">Specializing in Graph Neural Networks, with focus on expressivity and inference optimization</p>
 
                     </div>
 
                     <div class="right-column">
-                        <div class="card">
+                        <div class="card reveal-right">
                             <h3>About Me</h3>
                             <p>I am currently pursuing my PhD in Computer Science and Engineering at IIT Gandhinagar with a CPI of 9.14, working under the guidance of Prof. Anirban Dasgupta. My research focuses on Graph Neural Networks, particularly addressing challenges in expressivity and inference optimization.</p>
 
@@ -104,9 +111,9 @@
                     </div>
                 </div>
 
-                <div class="recent-updates">
+                <div class="recent-updates reveal">
                     <h2>Recent Updates</h2>
-                    <div class="updates-container" id="updatesContainer">
+                    <div class="updates-container stagger-children" id="updatesContainer">
                         </div>
                 </div>
             </section>

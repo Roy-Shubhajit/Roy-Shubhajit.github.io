@@ -20,6 +20,9 @@
     </script>
 
     <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
     <header class="header">
@@ -27,7 +30,11 @@
             <div class="logo">
                 <a href="index.html" style="color: var(--color-primary); font-weight: 700; font-size: 1.25rem; text-decoration: none;">Shubhajit Roy</a>
             </div>
-            <button class="mobile-nav-toggle" id="mobileToggle">☰</button>
+            <button class="mobile-nav-toggle" id="mobileToggle" aria-label="Toggle navigation">
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+            </button>
             <ul class="nav-links" id="navLinks">
                 <li><a href="index.html">Home</a></li>
                 <li><a href="publications.html">Publications</a></li>
@@ -43,19 +50,19 @@
     <main class="main">
         <div class="container">
             <section class="section">
-                <div class="section-header">
+                <div class="section-header reveal">
                     <h1 class="section-title">Research Projects</h1>
                     <p class="section-subtitle">Ongoing and completed research work in Graph Neural Networks and their applications</p>
                 </div>
 
-                <div class="projects-grid">
-                    <div class="card">
+                <div class="projects-grid stagger-children">
+                    <div class="card reveal">
                         <div class="card-header">
-                            <div>
-                                <h3 class="card-title">Graph Representation Learning for Fast Detector Simulation</h3>
-                                <p class="card-meta">Janurary 2024 - April 2024 • Prof. Shanmuganathan Raman</p>
+                            <h3 class="card-title">Graph Representation Learning for Fast Detector Simulation</h3>
+                            <p class="card-meta">Janurary 2024 - April 2024 • Prof. Shanmuganathan Raman</p>
+                            <div class="card-badges">
+                                <span class="status-badge completed">Completed</span>
                             </div>
-                            <div class="status-badge completed">Completed</div>
                         </div>
                         <div class="card-description">
                             Quark and gluon jets from high-energy particle collisions produce distinct patterns in jet images, but distinguishing
@@ -70,13 +77,13 @@ quark- from gluon-origin jets.
                         </div>
                     </div>
 
-                    <div class="card">
+                    <div class="card reveal">
                         <div class="card-header">
-                            <div>
-                                <h3 class="card-title">Graph Neural Network for Weather Data Prediction</h3>
-                                <p class="card-meta">February 2023 - Present • Prof. Anirban Dasgupta</p>
+                            <h3 class="card-title">Graph Neural Network for Weather Data Prediction</h3>
+                            <p class="card-meta">February 2023 - Present • Prof. Anirban Dasgupta</p>
+                            <div class="card-badges">
+                                <span class="status-badge active">Active</span>
                             </div>
-                            <div class="status-badge active">Active</div>
                         </div>
                         <div class="card-description">
                             Developing GNN-based models for predicting weather statistics using spatial-temporal graph representations. The project addresses challenges in streaming graph learning, including catastrophic forgetting and memory consumption optimization. We model weather stations as nodes with geographical connections to capture spatial dependencies in weather patterns.
@@ -89,13 +96,13 @@ quark- from gluon-origin jets.
                         </div>
                     </div>
 
-                    <div class="card">
+                    <div class="card reveal">
                         <div class="card-header">
-                            <div>
-                                <h3 class="card-title">Joint Entity Recognition and Relation Extraction</h3>
-                                <p class="card-meta">September 2021 - Present • Dr. Partha Basuchowdhuri</p>
+                            <h3 class="card-title">Joint Entity Recognition and Relation Extraction</h3>
+                            <p class="card-meta">September 2021 - Present • Dr. Partha Basuchowdhuri</p>
+                            <div class="card-badges">
+                                <span class="status-badge active">Active</span>
                             </div>
-                            <div class="status-badge active">Active</div>
                         </div>
                         <div class="card-description">
                             Developing GNN-based approaches for simultaneous entity recognition and relation extraction from natural language text. The project aims to construct knowledge graphs by leveraging graph dependencies between words in sentences. Our model uses syntactic and semantic relationships to improve both entity identification and relation classification accuracy.
@@ -108,13 +115,13 @@ quark- from gluon-origin jets.
                         </div>
                     </div>
 
-                    <div class="card">
+                    <div class="card reveal">
                         <div class="card-header">
-                            <div>
-                                <h3 class="card-title">Study of Social Networks using GNN</h3>
-                                <p class="card-meta">September 2022 - November 2022 • Prof. Anirban Dasgupta</p>
+                            <h3 class="card-title">Study of Social Networks using GNN</h3>
+                            <p class="card-meta">September 2022 - November 2022 • Prof. Anirban Dasgupta</p>
+                            <div class="card-badges">
+                                <span class="status-badge completed">Completed</span>
                             </div>
-                            <div class="status-badge completed">Completed</div>
                         </div>
                         <div class="card-description">
                             Applied Graph Neural Networks to predict various social network properties including average node degree, clustering coefficients, and average path lengths. The study analyzed how node and edge additions/deletions affect graph structure and compared GNN predictions with existing theoretical models and baseline approaches.
@@ -127,13 +134,13 @@ quark- from gluon-origin jets.
                         </div>
                     </div>
 
-                    <div class="card">
+                    <div class="card reveal">
                         <div class="card-header">
-                            <div>
-                                <h3 class="card-title">MedEx - Pharmacy Database Software</h3>
-                                <p class="card-meta">June 2021 - July 2021 • Prof. Paramartha Dutta</p>
+                            <h3 class="card-title">MedEx - Pharmacy Database Software</h3>
+                            <p class="card-meta">June 2021 - July 2021 • Prof. Paramartha Dutta</p>
+                            <div class="card-badges">
+                                <span class="status-badge completed">Completed</span>
                             </div>
-                            <div class="status-badge completed">Completed</div>
                         </div>
                         <div class="card-description">
                             Developed a comprehensive software solution for online pharmaceutical database management. Implemented SRS documentation and prototype code for transaction management, including features for customer account management, digital transactions, credit payment systems, and transaction history tracking. Collaborated with team members as part of IACS Computer Science Unit project.

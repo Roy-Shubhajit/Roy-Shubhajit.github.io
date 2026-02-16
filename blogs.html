@@ -20,6 +20,9 @@
     </script>
 
     <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
     <header class="header">
@@ -27,7 +30,11 @@
             <div class="logo">
                 <a href="index.html" style="color: var(--color-primary); font-weight: 700; font-size: 1.25rem; text-decoration: none;">Shubhajit Roy</a>
             </div>
-            <button class="mobile-nav-toggle" id="mobileToggle">☰</button>
+            <button class="mobile-nav-toggle" id="mobileToggle" aria-label="Toggle navigation">
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+            </button>
             <ul class="nav-links" id="navLinks">
                 <li><a href="index.html">Home</a></li>
                 <li><a href="publications.html">Publications</a></li>
@@ -43,7 +50,7 @@
     <main class="main">
         <div class="container">
             <section class="section">
-                <div class="section-header">
+                <div class="section-header reveal">
                     <h1 class="section-title">Academic Blog</h1>
                     <p class="section-subtitle">Insights and reflections on Graph Neural Networks, research, and academic life</p>
                 </div>

@@ -20,6 +20,9 @@
     </script>
 
     <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
     <header class="header">
@@ -27,7 +30,11 @@
             <div class="logo">
                 <a href="index.html" style="color: var(--color-primary); font-weight: 700; font-size: 1.25rem; text-decoration: none;">Shubhajit Roy</a>
             </div>
-            <button class="mobile-nav-toggle" id="mobileToggle">☰</button>
+            <button class="mobile-nav-toggle" id="mobileToggle" aria-label="Toggle navigation">
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+            </button>
             <ul class="nav-links" id="navLinks">
                 <li><a href="index.html">Home</a></li>
                 <li><a href="publications.html">Publications</a></li>
@@ -43,7 +50,7 @@
     <main class="main">
         <div class="container">
             <section class="section">
-                <div class="section-header">
+                <div class="section-header reveal">
                     <h1 class="section-title">Curriculum Vitae</h1>
                     <p class="section-subtitle">Complete academic and professional background</p>
                     <div style="margin-top: 1rem;">
@@ -55,13 +62,15 @@
                 </div>
 
                 <!-- Education Section -->
-                <div class="cv-section">
+                <div class="cv-section reveal">
                     <h3>Education</h3>
 
                     <div class="cv-item">
                         <h4>Ph.D in Computer Science and Engineering</h4>
-                        <div class="institution">Indian Institute of Technology Gandhinagar</div>
-                        <div class="date">July 2022 - Present</div>
+                        <div class="cv-meta">
+                            <div class="institution">Indian Institute of Technology Gandhinagar</div>
+                            <div class="date">July 2022 - Present</div>
+                        </div>
                         <div class="description">
                             <strong>CPI:</strong> 9.14<br>
                             <strong>Research Focus:</strong> Graph Neural Networks, Expressivity, Inference Optimization<br>
@@ -71,8 +80,10 @@
 
                     <div class="cv-item">
                         <h4>M.Sc in Mathematics and Computing with Major in Computer Science</h4>
-                        <div class="institution">Indian Association for the Cultivation of Science</div>
-                        <div class="date">October 2020 - July 2022</div>
+                        <div class="cv-meta">
+                            <div class="institution">Indian Association for the Cultivation of Science</div>
+                            <div class="date">October 2020 - July 2022</div>
+                        </div>
                         <div class="description">
                             <strong>CGPA:</strong> 8.42<br>
                             <strong>Research Focus:</strong> Use GNNs for Entity Recognition and Relation Extraction<br>
@@ -82,8 +93,10 @@
 
                     <div class="cv-item">
                         <h4>B.Sc in Mathematics</h4>
-                        <div class="institution">Presidency University</div>
-                        <div class="date">June 2017 - August 2020</div>
+                        <div class="cv-meta">
+                            <div class="institution">Presidency University</div>
+                            <div class="date">June 2017 - August 2020</div>
+                        </div>
                         <div class="description">
                             <strong>CGPA:</strong> 6.95<br>
                         </div>
@@ -91,12 +104,14 @@
                 </div>
 
                 <!-- Awards and Achievements -->
-                <div class="cv-section">
+                <div class="cv-section reveal">
                     <h3>Awards and Achievements</h3>
 
                     <div class="cv-item">
                         <h4>Best Poster Award - PhD Research Showcase</h4>
-                        <div class="institution">Indian Institute of Technology Gandhinagar</div>
+                        <div class="cv-meta">
+                            <div class="institution">Indian Institute of Technology Gandhinagar</div>
+                        </div>
                         <div class="description">
                             Recieved for Best Poster presentation on Scalable Graph Neural Networks
                         </div>
@@ -104,7 +119,9 @@
 
                     <div class="cv-item">
                         <h4>UGC-NET 2022 - JRF Qualified</h4>
-                        <div class="institution">National Testing Agency (NTA)</div>
+                        <div class="cv-meta">
+                            <div class="institution">National Testing Agency (NTA)</div>
+                        </div>
                         <div class="description">
                             Qualified for Junior Research Fellowship and Assistant Professor eligibility
                         </div>
@@ -112,7 +129,9 @@
 
                     <div class="cv-item">
                         <h4>GATE 2022</h4>
-                        <div class="institution">Indian Institute of Technology Kharagpur</div>
+                        <div class="cv-meta">
+                            <div class="institution">Indian Institute of Technology Kharagpur</div>
+                        </div>
                         <div class="description">
                             Successfully cleared Graduate Aptitude Test in Engineering
                         </div>
@@ -120,7 +139,9 @@
 
                     <div class="cv-item">
                         <h4>Hacktoberfest 2022 & 2021</h4>
-                        <div class="institution">GitHub and Digital Ocean</div>
+                        <div class="cv-meta">
+                            <div class="institution">GitHub and Digital Ocean</div>
+                        </div>
                         <div class="description">
                             Successfully completed Hacktoberfest by contributing to open source projects on GitHub
                         </div>
@@ -128,7 +149,7 @@
                 </div>
 
                 <!-- Relevant Coursework -->
-                <div class="cv-section">
+                <div class="cv-section reveal">
                     <h3>Relevant Coursework</h3>
 
                     <div class="cv-item">
@@ -145,62 +166,80 @@
                 </div>
 
                 <!-- Events Attended -->
-                <div class="cv-section">
+                <div class="cv-section reveal">
                     <h3>Events Attended</h3>
                     <div class="cv-item">
                         <h4>Indian Symposium on Machine Learning</h4>
-                        <div class="institution">BITS Pilani Hyderbad Campus</div>
-                        <div class="date">December 2025</div>
+                        <div class="cv-meta">
+                            <div class="institution">BITS Pilani Hyderbad Campus</div>
+                            <div class="date">December 2025</div>
+                        </div>
                     </div>
                     <div class="cv-item">
                         <h4>Frontiers of Graph Algorithms</h4>
-                        <div class="institution">Indian Institute of Science, Bangalore</div>
-                        <div class="date">December 2025</div>
+                        <div class="cv-meta">
+                            <div class="institution">Indian Institute of Science, Bangalore</div>
+                            <div class="date">December 2025</div>
+                        </div>
                     </div>
                     <div class="cv-item">
                         <h4>Neuroscience, Data Science and Dynamics</h4>
-                        <div class="institution">International Center of Theoretical Sciences, Bangalore</div>
-                        <div class="date">April 2025</div>
+                        <div class="cv-meta">
+                            <div class="institution">International Center of Theoretical Sciences, Bangalore</div>
+                            <div class="date">April 2025</div>
+                        </div>
                     </div>
 
                     <div class="cv-item">
                         <h4>Indian Symposium on Machine Learning</h4>
-                        <div class="institution">BITS Pilani Goa Campus</div>
-                        <div class="date">December 2024</div>
+                        <div class="cv-meta">
+                            <div class="institution">BITS Pilani Goa Campus</div>
+                            <div class="date">December 2024</div>
+                        </div>
                     </div>
 
                     <div class="cv-item">
                         <h4>Pingala Interactions in Computing 2024</h4>
-                        <div class="institution">Infosys Ltd Mysore</div>
-                        <div class="date">February 2024</div>
+                        <div class="cv-meta">
+                            <div class="institution">Infosys Ltd Mysore</div>
+                            <div class="date">February 2024</div>
+                        </div>
                     </div>
 
                     <div class="cv-item">
                         <h4>CODS-COMAD 2024</h4>
-                        <div class="institution">International Institute of Information Technology Bangalore</div>
-                        <div class="date">January 2024</div>
+                        <div class="cv-meta">
+                            <div class="institution">International Institute of Information Technology Bangalore</div>
+                            <div class="date">January 2024</div>
+                        </div>
                     </div>
 
                     <div class="cv-item">
                         <h4>Indian Symposium on Machine Learning</h4>
-                        <div class="institution">Indian institute of Technology Bombay</div>
-                        <div class="date">December 2023</div>
+                        <div class="cv-meta">
+                            <div class="institution">Indian institute of Technology Bombay</div>
+                            <div class="date">December 2023</div>
+                        </div>
                     </div>
 
                     <div class="cv-item">
                         <h4>Data Science: Probabilistic and Optimization Methods</h4>
-                        <div class="institution">International Center of Theoretical Sciences, Bangalore</div>
-                        <div class="date">July 2023</div>
+                        <div class="cv-meta">
+                            <div class="institution">International Center of Theoretical Sciences, Bangalore</div>
+                            <div class="date">July 2023</div>
+                        </div>
                     </div>
                 </div>
 
                 <!-- Certifications -->
-                <div class="cv-section">
+                <div class="cv-section reveal">
                     <h3>Certifications</h3>
                     <div class="cv-item">
                         <h4>Certificate in Scientific Writing</h4>
-                        <div class="institution">Indian Institute of Technology Gandhinagar</div>
-                        <div class="date">August 2025</div>
+                        <div class="cv-meta">
+                            <div class="institution">Indian Institute of Technology Gandhinagar</div>
+                            <div class="date">August 2025</div>
+                        </div>
                         <div class="description">
                             The Certificate in Scientific Writing validates proficiency in producing clear, accurate, and well-structured scientific documents for effective academic and professional communication.
                         </div>
@@ -208,8 +247,10 @@
 
                     <div class="cv-item">
                         <h4>Elements of AI</h4>
-                        <div class="institution">University of Helsinki</div>
-                        <div class="date">June 2020</div>
+                        <div class="cv-meta">
+                            <div class="institution">University of Helsinki</div>
+                            <div class="date">June 2020</div>
+                        </div>
                         <div class="description">
                             Introduction to AI fundamentals, machine learning, and neural networks
                         </div>
@@ -217,8 +258,10 @@
 
                     <div class="cv-item">
                         <h4>Introduction to IoT</h4>
-                        <div class="institution">Cisco Networking Academy</div>
-                        <div class="date">August 2020</div>
+                        <div class="cv-meta">
+                            <div class="institution">Cisco Networking Academy</div>
+                            <div class="date">August 2020</div>
+                        </div>
                         <div class="description">
                             Internet of Things concepts and digital transformation technologies
                         </div>
@@ -226,7 +269,7 @@
                 </div>
 
                 <!-- Technical Skills -->
-                <div class="cv-section">
+                <div class="cv-section reveal">
                     <h3>Technical Skills</h3>
 
                     <div class="cv-item">
