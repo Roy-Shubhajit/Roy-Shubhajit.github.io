@@ -163,6 +163,14 @@ class PortfolioApp {
 
         const recentUpdates = [
             {
+                title: "Paper Published: FIT-GNN",
+                description: "Our latest paper on faster inference time for GNNs using coarsening has been accepted to TMLR",
+                date: "2026-03-02",
+                type: "publication",
+                link: "publications.html",
+                icon: "📄"
+            },
+            {
                 title: "Paper Published: Local Fragments, Global Gains",
                 description: "Our latest paper on subgraph counting using GNNs has been accepted to Web&Graph @ WSDM 2026",
                 date: "2025-12-22",
@@ -217,14 +225,6 @@ class PortfolioApp {
                 type: "Awards",
                 link: "cv.html",
                 icon: "🏅"
-            },
-            {
-                title: "Paper Published: FIT-GNN",
-                description: "Our latest paper on faster inference time for GNNs using coarsening has been accepted to ArXiv",
-                date: "2024-10-19",
-                type: "publication",
-                link: "publications.html",
-                icon: "📄"
             },
             {
                 title: "Reviewer - NeurIPS 2025",
