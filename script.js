@@ -163,6 +163,14 @@ class PortfolioApp {
 
         const recentUpdates = [
             {
+                title: "Started IBM Research Internship",
+                description: "Started internship as Research Intern in Platforms in AI at IBM Research - Bangalore",
+                date: "2026-05-08",
+                type: "experience",
+                link: "roles.html",
+                icon: "💼"
+            },
+            {
                 title: "Paper Published: FIT-GNN",
                 description: "Our latest paper on faster inference time for GNNs using coarsening has been accepted to TMLR",
                 date: "2026-03-02",

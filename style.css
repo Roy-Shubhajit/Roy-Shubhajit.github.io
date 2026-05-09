@@ -1056,6 +1056,19 @@ html.dark-mode .header {
   transition: border-color 0.3s var(--ease-out);
 }
 
+.supervisor-link {
+  color: var(--color-primary-hover);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  font-weight: 600;
+  transition: color 0.3s var(--ease-out), border-color 0.3s var(--ease-out);
+}
+
+.supervisor-link:hover {
+  color: var(--color-primary-active);
+  border-bottom-color: var(--color-primary-active);
+}
+
 .card-description a:hover,
 .role-description a:hover,
 .cv-item .description a:hover {
