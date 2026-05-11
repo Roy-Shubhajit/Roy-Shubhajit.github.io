@@ -1278,6 +1278,19 @@ html.dark-mode .profile-photo-placeholder:hover {
   margin: 0 auto;
 }
 
+.role-section {
+  margin-bottom: 3rem;
+}
+
+.role-section-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--color-primary);
+  margin-bottom: 1.5rem;
+  border-bottom: 2px solid var(--color-border);
+  padding-bottom: 0.5rem;
+}
+
 .role-entry {
   margin-bottom: 2rem;
   padding: 1.75rem;
