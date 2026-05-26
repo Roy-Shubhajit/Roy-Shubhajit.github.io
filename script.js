@@ -163,6 +163,14 @@ class PortfolioApp {
 
         const recentUpdates = [
             {
+                title: "Paper on ArXiv: SiST-GNN",
+                description: "Our latest paper on simultaneous spatial-temporal message passing for dynamic graph representation learning is now on ArXiv",
+                date: "2026-05-25",
+                type: "publication",
+                link: "publications.html",
+                icon: "📄"
+            },
+            {
                 title: "Started IBM Research Internship",
                 description: "Started internship as Research Intern in Platforms in AI at IBM Research - Bangalore",
                 date: "2026-05-08",
