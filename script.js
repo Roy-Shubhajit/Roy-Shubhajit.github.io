@@ -163,6 +163,14 @@ class PortfolioApp {
 
         const recentUpdates = [
             {
+                title: "Attending: ACM SIGMOD/PODS 2026",
+                description: "Attending the ACM SIGMOD/PODS 2026 conference in Bangalore, India",
+                date: "2026-05-31",
+                type: "event",
+                link: "cv.html",
+                icon: "🕸️"
+            },
+            {
                 title: "Paper on ArXiv: SiST-GNN",
                 description: "Our latest paper on simultaneous spatial-temporal message passing for dynamic graph representation learning is now on ArXiv",
                 date: "2026-05-25",
