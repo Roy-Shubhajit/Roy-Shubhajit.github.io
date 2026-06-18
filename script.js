@@ -163,8 +163,8 @@ class PortfolioApp {
 
         const recentUpdates = [
             {
-                title: "Attending: ACM SIGMOD/PODS 2026",
-                description: "Attending the ACM SIGMOD/PODS 2026 conference in Bangalore, India",
+                title: "Attended: ACM SIGMOD/PODS 2026",
+                description: "Attended the ACM SIGMOD/PODS 2026 conference in Bangalore, India",
                 date: "2026-05-31",
                 type: "event",
                 link: "cv.html",
