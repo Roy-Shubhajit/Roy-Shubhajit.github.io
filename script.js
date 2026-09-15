@@ -163,6 +163,22 @@ class PortfolioApp {
 
         const recentUpdates = [
             {
+                title: "Reviewer - LoG 2026",
+                description: "Served as Reviewer for the Learning on Graphs Conference 2026",
+                date: "2026-08-01",
+                type: "service",
+                link: "roles.html",
+                icon: "🤝"
+            },
+            {
+                title: "Completed IBM Research Internship",
+                description: "Completed internship as Research Intern in Platforms in AI at IBM Research - Bangalore",
+                date: "2026-08-31",
+                type: "experience",
+                link: "roles.html",
+                icon: "💼"
+            },
+            {
                 title: "Attended: ACM SIGMOD/PODS 2026",
                 description: "Attended the ACM SIGMOD/PODS 2026 conference in Bangalore, India",
                 date: "2026-05-31",
