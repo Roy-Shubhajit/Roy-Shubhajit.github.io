@@ -165,7 +165,7 @@ class PortfolioApp {
             {
                 title: "Reviewer - LoG 2026",
                 description: "Served as Reviewer for the Learning on Graphs Conference 2026",
-                date: "2026-08-01",
+                date: "2026-08-13",
                 type: "service",
                 link: "roles.html",
                 icon: "🤝"
@@ -173,7 +173,7 @@ class PortfolioApp {
             {
                 title: "Completed IBM Research Internship",
                 description: "Completed internship as Research Intern in Platforms in AI at IBM Research - Bangalore",
-                date: "2026-08-31",
+                date: "2026-08-07",
                 type: "experience",
                 link: "roles.html",
                 icon: "💼"

@@ -60,14 +60,10 @@
                 <div class="publications-grid stagger-children">
                     <div class="card reveal">
                         <div class="card-header">
-                            <h3 class="card-title">
-                                <a href="https://arxiv.org/abs/2605.25548" target="_blank" rel="noopener noreferrer">
-                                    'Si'multaneous 'S'patial-'T'emporal Message Passing for Dynamic Graph Representation Learning
-                                </a>
-                            </h3>
+                            <h3 class="card-title">SiST-GNN: Simultaneous Spatial-Temporal Message Passing for Dynamic Graph Representation Learning</h3>
                             <p class="card-meta">Shubhajit Roy, Anirban Dasgupta • 2026</p>
                             <div class="card-badges">
-                                <span class="status-badge completed">ArXiv</span>
+                                <a class="status-badge completed" href="https://arxiv.org/abs/2605.25548" target="_blank" rel="noopener noreferrer" title="arXiv:2605.25548">ArXiv</a>
                             </div>
                         </div>
                         <figure class="card-figure">
@@ -77,7 +73,7 @@
                             <figcaption>Temporal→Spatial and Spatial→Temporal paradigms vs. simultaneous message passing (ours)</figcaption>
                         </figure>
                         <div class="card-description">
-                            We introduce SiST-GNN, a dynamic graph neural network that integrates spatial and temporal reasoning within a unified message-passing framework. Instead of sequentially chaining spatial and temporal components, SiST-GNN maintains recurrent node states representing history, pairs them with current features across cross-time edges, and applies standard graph convolution simultaneously. Our approach achieves 109–277% improvement over prior methods on link prediction benchmarks in fixed-split settings and 68–194% in live-update regimes.
+                            Snapshot-based dynamic GNNs are typically <em>temporal-first</em> or <em>spatial-first</em>: the rigid sequencing forces the second stage to consume an already-compressed summary from the first, so the message-passing operator never gets to weigh a neighbour's contribution by that neighbour's past trajectory. SiST-GNN instead fuses both signals inside a single message-passing operation — each node carries a recurrent hidden state summarising its history, which is paired with its current feature vector as two nodes joined by a cross-time edge, and a standard graph convolution over this temporally augmented graph yields the updated representation. Against fourteen link-prediction baselines, SiST-GNN improves on the strongest prior method by 1–18% in the fixed-split setting and leads on five of six datasets in the live-update setting (1–158%); on dynamic node classification it beats the best discrete-time baseline by 7–23% while matching continuous-time methods that consume raw event streams.
                         </div>
                         <div class="card-tags">
                             <span class="tag">Dynamic Graphs</span>
@@ -89,14 +85,10 @@
 
                     <div class="card reveal">
                         <div class="card-header">
-                            <h3 class="card-title">
-                                <a href="https://openreview.net/forum?id=g7r7y2I7Sz" target="_blank" rel="noopener noreferrer">
-                                  FIT-GNN: Faster Inference Time for GNNs that 'FIT' in Memory Using Coarsening
-                                </a>
-                            </h3>
+                            <h3 class="card-title">FIT-GNN: Faster Inference Time for GNNs that 'FIT' in Memory Using Coarsening</h3>
                             <p class="card-meta">Shubhajit Roy, Hrriday Ruparel, Kishan Ved, Anirban Dasgupta • 2026</p>
                             <div class="card-badges">
-                                <span class="status-badge completed">TMLR</span>
+                                <a class="status-badge completed" href="https://openreview.net/forum?id=g7r7y2I7Sz" target="_blank" rel="noopener noreferrer" title="TMLR page on OpenReview">TMLR</a>
                             </div>
                         </div>
                         <figure class="card-figure">
@@ -118,15 +110,16 @@
 
                     <div class="card reveal">
                         <div class="card-header">
-                            <h3 class="card-title">
-                                <a href="https://arxiv.org/abs/2305.19659" target="_blank" rel="noopener noreferrer">
-                                    Local Fragments, Global Gains: Subgraph Counting using Graph Neural Networks
-                                </a>
-                            </h3>
+                            <h3 class="card-title">Local Fragments, Global Gains: Subgraph Counting using Graph Neural Networks</h3>
                             <p class="card-meta">Shubhajit Roy, Shrutimoy Das, Binita Maity, Anant Kumar, Anirban Dasgupta • 2025</p>
                             <div class="card-badges">
-                                <span class="status-badge completed">DiffCoAlg @ NeurIPS 2025</span>
-                                <span class="status-badge completed">Web&Graph @ WSDM 2026</span>
+                                <a class="status-badge completed" href="https://openreview.net/forum?id=O0MtqbAh5C" target="_blank" rel="noopener noreferrer" title="OpenReview page — DiffCoAlg @ NeurIPS 2025">DiffCoAlg @ NeurIPS 2025</a>
+                                <a class="status-badge completed" href="https://dl.acm.org/doi/abs/10.1145/3779211.3793168" target="_blank" rel="noopener noreferrer" title="ACM Digital Library — Web&amp;Graph @ WSDM 2026">Web&amp;Graph @ WSDM 2026</a>
+                                <a class="status-badge completed" href="https://arxiv.org/abs/2305.19659" target="_blank" rel="noopener noreferrer" title="arXiv:2305.19659">ArXiv</a>
+                                <a class="status-badge resource" href="slides/local_fragments_global_gains.pdf" target="_blank" rel="noopener noreferrer" title="Talk slides (PDF)">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.5" y="3.5" width="19" height="13" rx="2"/><path d="M12 16.5V21"/><path d="M8.5 21h7"/></svg>
+                                    Slides
+                                </a>
                             </div>
                         </div>
                         <figure class="card-figure">
