@@ -60,6 +60,31 @@
                 <div class="publications-grid stagger-children">
                     <div class="card reveal">
                         <div class="card-header">
+                            <h3 class="card-title">T-SNN: Temporal Simplicial Neural Network for EEG Decoding</h3>
+                            <p class="card-meta">Nikita Malik, Shubhajit Roy, Mohit Kataria, Isuru Herath, Suraj Yadav, In&eacute;s Garc&iacute;a-Redondo, Dhananjay Bhaskar &bull; 2026</p>
+                            <div class="card-badges">
+                                <a class="status-badge completed" href="https://arxiv.org/abs/2609.34002" target="_blank" rel="noopener noreferrer" title="arXiv:2609.34002">ArXiv</a>
+                            </div>
+                        </div>
+                        <figure class="card-figure">
+                            <a href="images/publications/t-snn.png" target="_blank" rel="noopener noreferrer">
+                                <img src="images/publications/t-snn.png" alt="T-SNN pipeline: EEG windows lifted into simplicial complexes, encoded per rank, passed through LSTM and simplicial convolution blocks, and fused with eye-movement features for emotion classification" loading="lazy">
+                            </a>
+                            <figcaption>T-SNN overview: EEG windows lifted into evolving simplicial complexes, then fused with eye-movement features</figcaption>
+                        </figure>
+                        <div class="card-description">
+                            Decoding brain states needs models that capture both how neural activity evolves and how groups of brain regions interact. Existing EEG methods largely treat recordings as multivariate time series or reduce functional connectivity to pairwise graphs, leaving dynamic higher-order interactions unmodelled. T-SNN represents an EEG recording as a sequence of evolving simplicial complexes and combines simplicial convolutions with recurrent updates, so higher-order interactions and their temporal evolution are learned jointly. On the seven-class SEED-VII emotion recognition task it outperforms convolutional, recurrent, graph-based, and Transformer methods in both trial-wise and cross-subject evaluation, and incorporating eye-movement features improves it further &mdash; evidence for the framework&rsquo;s potential in multimodal brain-state decoding.
+                        </div>
+                        <div class="card-tags">
+                            <span class="tag">Simplicial Complexes</span>
+                            <span class="tag">Higher-Order Interactions</span>
+                            <span class="tag">EEG Decoding</span>
+                            <span class="tag">Emotion Recognition</span>
+                        </div>
+                    </div>
+
+                    <div class="card reveal">
+                        <div class="card-header">
                             <h3 class="card-title">SiST-GNN: Simultaneous Spatial-Temporal Message Passing for Dynamic Graph Representation Learning</h3>
                             <p class="card-meta">Shubhajit Roy, Anirban Dasgupta • 2026</p>
                             <div class="card-badges">

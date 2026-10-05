@@ -163,6 +163,22 @@ class PortfolioApp {
 
         const recentUpdates = [
             {
+                title: "Paper on ArXiv: T-SNN",
+                description: "Our paper on temporal simplicial neural networks for EEG decoding is now on ArXiv",
+                date: "2026-09-27",
+                type: "publication",
+                link: "publications.html",
+                icon: "📄"
+            },
+            {
+                title: "Paper Accepted: FIT-GNN",
+                description: "Our paper on faster inference time for GNNs using coarsening has been accepted to the Hot-off-the-press track at AutoML 2026",
+                date: "2026-08-17",
+                type: "publication",
+                link: "publications.html",
+                icon: "📄"
+            },
+            {
                 title: "Reviewer - LoG 2026",
                 description: "Served as Reviewer for the Learning on Graphs Conference 2026",
                 date: "2026-08-13",
@@ -177,6 +193,14 @@ class PortfolioApp {
                 type: "experience",
                 link: "roles.html",
                 icon: "💼"
+            },
+            {
+                title: "Released Package: simplicial-sindy",
+                description: "Published simplicial-sindy on PyPI, a package for discovering simplicial complexes from multivariate time series",
+                date: "2026-07-29",
+                type: "project",
+                link: "projects.html",
+                icon: "📦"
             },
             {
                 title: "Attended: ACM SIGMOD/PODS 2026",
