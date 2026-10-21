@@ -25,15 +25,31 @@ class PortfolioApp {
 
         if (toggle) {
             toggle.addEventListener('click', () => {
-                // Toggle theme on both html and body for immediate effect
-                document.documentElement.classList.toggle('dark-mode');
-                document.body.classList.toggle('dark-mode');
+                const root = document.documentElement;
+                const applyTheme = () => {
+                    // Toggle theme on both html and body for immediate effect
+                    root.classList.toggle('dark-mode');
+                    document.body.classList.toggle('dark-mode');
 
-                const isDark = document.documentElement.classList.contains('dark-mode');
-                localStorage.setItem('theme', isDark ? 'dark' : 'light');
-                this.updateThemeIcon(isDark);
+                    const isDark = root.classList.contains('dark-mode');
+                    localStorage.setItem('theme', isDark ? 'dark' : 'light');
+                    this.updateThemeIcon(isDark);
+                };
+
+                // Cross-fade the whole page in one pass where supported
+                if (!document.startViewTransition || this.prefersReducedMotion()) {
+                    applyTheme();
+                    return;
+                }
+                root.classList.add('theme-switching');
+                document.startViewTransition(applyTheme).finished
+                    .finally(() => root.classList.remove('theme-switching'));
             });
         }
+    }
+
+    prefersReducedMotion() {
+        return window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     }
 
     updateThemeIcon(isDark) {
@@ -162,6 +178,14 @@ class PortfolioApp {
         if (!container) return;
 
         const recentUpdates = [
+            {
+                title: "Paper Accepted: FIT-GNN",
+                description: "Our paper on faster inference time for GNNs using coarsening has been accepted to the TMLR track at LoG 2026",
+                date: "2026-10-13",
+                type: "publication",
+                link: "publications.html",
+                icon: "📄"
+            },
             {
                 title: "Paper on ArXiv: T-SNN",
                 description: "Our paper on temporal simplicial neural networks for EEG decoding is now on ArXiv",
@@ -395,12 +419,14 @@ class PortfolioApp {
     // Smooth Scrolling for Internal Links
     setupSmoothScrolling() {
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
+            anchor.addEventListener('click', (e) => {
+                const href = anchor.getAttribute('href');
+                if (href === '#') return;
                 e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
+                const target = document.querySelector(href);
                 if (target) {
                     target.scrollIntoView({
-                        behavior: 'smooth',
+                        behavior: this.prefersReducedMotion() ? 'auto' : 'smooth',
                         block: 'start'
                     });
                 }
@@ -437,22 +463,23 @@ class PortfolioApp {
         const header = document.querySelector('.header');
         if (!header) return;
 
-        let lastScroll = 0;
         const scrollThreshold = 50;
+        let ticking = false;
 
-        const handleScroll = this.debounce(() => {
-            const currentScroll = window.scrollY;
+        // Sync with the next frame rather than a timer, so the header reacts
+        // in step with scrolling and does at most one update per frame
+        const update = () => {
+            header.classList.toggle('scrolled', window.scrollY > scrollThreshold);
+            ticking = false;
+        };
 
-            if (currentScroll > scrollThreshold) {
-                header.classList.add('scrolled');
-            } else {
-                header.classList.remove('scrolled');
+        window.addEventListener('scroll', () => {
+            if (!ticking) {
+                ticking = true;
+                requestAnimationFrame(update);
             }
-
-            lastScroll = currentScroll;
-        }, 10);
-
-        window.addEventListener('scroll', handleScroll, { passive: true });
+        }, { passive: true });
+        update();
     }
 
     // Utility method for lazy loading images
