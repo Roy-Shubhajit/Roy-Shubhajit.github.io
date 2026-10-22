@@ -10,18 +10,16 @@ class PortfolioApp {
         this.setupMobileNav();
         this.setupProfilePhoto();
         this.populateRecentUpdates();
+        this.populateUpdatesHistory();
         this.setupSmoothScrolling();
         this.setupScrollReveal();
         this.setupHeaderScroll();
+        this.setupExpandableAbstracts();
     }
 
     // Improved Theme Management
     setupThemeToggle() {
         const toggle = document.getElementById('themeToggle');
-
-        // Set initial icon based on current theme
-        const isDark = document.documentElement.classList.contains('dark-mode');
-        this.updateThemeIcon(isDark);
 
         if (toggle) {
             toggle.addEventListener('click', () => {
@@ -33,7 +31,6 @@ class PortfolioApp {
 
                     const isDark = root.classList.contains('dark-mode');
                     localStorage.setItem('theme', isDark ? 'dark' : 'light');
-                    this.updateThemeIcon(isDark);
                 };
 
                 // Cross-fade the whole page in one pass where supported
@@ -50,13 +47,6 @@ class PortfolioApp {
 
     prefersReducedMotion() {
         return window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    }
-
-    updateThemeIcon(isDark) {
-        const themeIcon = document.querySelector('.theme-icon');
-        if (themeIcon) {
-            themeIcon.textContent = isDark ? '🌞' : '🌙';
-        }
     }
 
     // Mobile Navigation - Slide-in Drawer
@@ -172,11 +162,8 @@ class PortfolioApp {
         }
     }
 
-    // Recent Updates Data and Population
-    populateRecentUpdates() {
-        const container = document.getElementById('updatesContainer');
-        if (!container) return;
-
+    // Recent Updates Data, newest first
+    getUpdates() {
         const recentUpdates = [
             {
                 title: "Paper Accepted: FIT-GNN",
@@ -365,15 +352,84 @@ class PortfolioApp {
         ];
 
         // Sort by date (most recent first)
-        recentUpdates.sort((a, b) => new Date(b.date) - new Date(a.date));
+        return recentUpdates.sort((a, b) => new Date(b.date) - new Date(a.date));
+    }
 
-        // Show only the 6 most recent updates
-        const latestUpdates = recentUpdates.slice(0, 6);
+    // Home page: the 6 most recent updates as cards
+    populateRecentUpdates() {
+        const container = document.getElementById('updatesContainer');
+        if (!container) return;
 
-        latestUpdates.forEach(update => {
-            const updateElement = this.createUpdateElement(update);
-            container.appendChild(updateElement);
+        this.getUpdates().slice(0, 6).forEach(update => {
+            container.appendChild(this.createUpdateElement(update));
         });
+    }
+
+    // Updates page: every update, grouped by year, with type filters
+    populateUpdatesHistory() {
+        const timeline = document.getElementById('updatesTimeline');
+        const filters = document.getElementById('updatesFilters');
+        if (!timeline) return;
+
+        const updates = this.getUpdates();
+        const typeOf = update => update.type.toLowerCase();
+        const label = type => type.charAt(0).toUpperCase() + type.slice(1);
+
+        const render = (type) => {
+            timeline.innerHTML = '';
+            const shown = type === 'all' ? updates : updates.filter(u => typeOf(u) === type);
+            let yearList = null;
+            let currentYear = null;
+
+            shown.forEach(update => {
+                const year = update.date.slice(0, 4);
+                if (year !== currentYear) {
+                    currentYear = year;
+                    const group = document.createElement('section');
+                    group.className = 'timeline-year';
+                    group.innerHTML = `<h2 class="timeline-year-title">${year}</h2>`;
+                    yearList = document.createElement('ol');
+                    yearList.className = 'timeline-list';
+                    group.appendChild(yearList);
+                    timeline.appendChild(group);
+                }
+
+                const item = document.createElement('li');
+                const tag = update.link ? 'a' : 'div';
+                const href = update.link ? ` href="${update.link}"` : '';
+                item.innerHTML = `
+                    <${tag} class="timeline-item"${href}>
+                        <time class="timeline-date" datetime="${update.date}">${this.formatShortDate(update.date)}</time>
+                        <div class="timeline-body">
+                            <div class="timeline-title">${update.icon} ${update.title}</div>
+                            <div class="timeline-description">${update.description}</div>
+                        </div>
+                        <span class="update-type">${label(typeOf(update))}</span>
+                    </${tag}>
+                `;
+                yearList.appendChild(item);
+            });
+        };
+
+        if (filters) {
+            const types = ['all', ...new Set(updates.map(typeOf))];
+            types.forEach(type => {
+                const count = type === 'all' ? updates.length : updates.filter(u => typeOf(u) === type).length;
+                const chip = document.createElement('button');
+                chip.type = 'button';
+                chip.className = 'filter-chip';
+                chip.textContent = `${type === 'all' ? 'All' : label(type)} ${count}`;
+                chip.setAttribute('aria-pressed', String(type === 'all'));
+                chip.addEventListener('click', () => {
+                    filters.querySelectorAll('.filter-chip').forEach(c => c.setAttribute('aria-pressed', 'false'));
+                    chip.setAttribute('aria-pressed', 'true');
+                    render(type);
+                });
+                filters.appendChild(chip);
+            });
+        }
+
+        render('all');
     }
 
     createUpdateElement(update) {
@@ -397,13 +453,17 @@ class PortfolioApp {
 
         // Add click handler for navigation
         if (update.link) {
-            updateDiv.style.cursor = 'pointer';
+            updateDiv.classList.add('is-link');
             updateDiv.addEventListener('click', () => {
                 window.location.href = update.link;
             });
         }
 
         return updateDiv;
+    }
+
+    formatShortDate(dateString) {
+        return new Date(dateString).toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
     }
 
     formatDate(dateString) {
@@ -480,6 +540,26 @@ class PortfolioApp {
             }
         }, { passive: true });
         update();
+    }
+
+    // Publication abstracts start clamped to a few lines; add a toggle only
+    // where the text actually overflows
+    setupExpandableAbstracts() {
+        document.querySelectorAll('.publications-grid .card-description').forEach(desc => {
+            if (desc.scrollHeight <= desc.clientHeight + 1) return;
+
+            const toggle = document.createElement('button');
+            toggle.type = 'button';
+            toggle.className = 'read-more';
+            toggle.textContent = 'Read more';
+            toggle.setAttribute('aria-expanded', 'false');
+            toggle.addEventListener('click', () => {
+                const expanded = desc.classList.toggle('expanded');
+                toggle.textContent = expanded ? 'Show less' : 'Read more';
+                toggle.setAttribute('aria-expanded', String(expanded));
+            });
+            desc.after(toggle);
+        });
     }
 
     // Utility method for lazy loading images

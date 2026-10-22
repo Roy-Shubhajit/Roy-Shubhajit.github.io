@@ -5,6 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Publications - Shubhajit Roy</title>
     <meta name="description" content="Research publications by Shubhajit Roy on Graph Neural Networks, including work on expressivity and inference optimization.">
+    <meta name="theme-color" content="#FFFFFF" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#0A0A0A" media="(prefers-color-scheme: dark)">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Shubhajit Roy">
+    <meta property="og:title" content="Publications - Shubhajit Roy">
+    <meta property="og:description" content="Research publications by Shubhajit Roy on Graph Neural Networks, including work on expressivity and inference optimization.">
+    <meta property="og:url" content="https://roy-shubhajit.github.io/publications.html">
+    <meta property="og:image" content="https://roy-shubhajit.github.io/images/profile-photo.jpg">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="@RoyShubhajit">
 
     <link rel="icon" href='data:image/svg+xml,<svg width="512" height="512" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><line x1="150" y1="90" x2="260" y2="140" stroke="black" stroke-width="10"/><line x1="150" y1="90" x2="80" y2="290" stroke="black" stroke-width="10"/><line x1="260" y1="140" x2="430" y2="120" stroke="black" stroke-width="10"/><line x1="260" y1="140" x2="220" y2="250" stroke="black" stroke-width="10"/><line x1="220" y1="250" x2="80" y2="290" stroke="black" stroke-width="10"/><line x1="220" y1="250" x2="430" y2="120" stroke="black" stroke-width="10"/><line x1="220" y1="250" x2="380" y2="420" stroke="black" stroke-width="10"/><line x1="80" y1="290" x2="380" y2="420" stroke="black" stroke-width="10"/><line x1="430" y1="120" x2="380" y2="420" stroke="black" stroke-width="10"/><circle cx="150" cy="90" r="50" fill="%237bc5c5" stroke="black" stroke-width="10"/><circle cx="260" cy="140" r="50" fill="%23f8cd4e" stroke="black" stroke-width="10"/><circle cx="220" cy="250" r="50" fill="%23f8cd4e" stroke="black" stroke-width="10"/><circle cx="80" cy="290" r="50" fill="%237bc5c5" stroke="black" stroke-width="10"/><circle cx="430" cy="120" r="50" fill="%23ed7d7d" stroke="black" stroke-width="10"/><circle cx="380" cy="420" r="50" fill="%23ed7d7d" stroke="black" stroke-width="10"/></svg>'>
 
@@ -24,19 +34,14 @@
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
     <header class="header">
         <nav class="nav">
             <div class="logo">
-                <a href="index.html" style="color: var(--color-primary); font-weight: 700; font-size: 1.25rem; text-decoration: none;">Shubhajit Roy</a>
+                <a href="index.html">Shubhajit Roy</a>
             </div>
-            <button class="mobile-nav-toggle" id="mobileToggle" aria-label="Toggle navigation">
-                <span class="hamburger-line"></span>
-                <span class="hamburger-line"></span>
-                <span class="hamburger-line"></span>
-            </button>
             <ul class="nav-links" id="navLinks">
                 <li><a href="index.html">Home</a></li>
                 <li><a href="publications.html" class="active">Publications</a></li>
@@ -44,8 +49,18 @@
                 <li><a href="roles.html">Roles</a></li>
                 <li><a href="blogs.html">Blogs</a></li>
                 <li><a href="cv.html">CV</a></li>
-                <li><button id="themeToggle" title="Toggle theme"><span class="theme-icon">🌙</span></button></li>
             </ul>
+            <div class="nav-actions">
+                <button id="themeToggle" type="button" title="Toggle theme" aria-label="Toggle theme">
+                    <svg class="icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+                    <svg class="icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+                </button>
+                <button class="mobile-nav-toggle" id="mobileToggle" aria-label="Toggle navigation">
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                </button>
+            </div>
         </nav>
     </header>
 
@@ -60,7 +75,7 @@
                 <div class="publications-grid stagger-children">
                     <div class="card reveal">
                         <div class="card-header">
-                            <h3 class="card-title">T-SNN: Temporal Simplicial Neural Network for EEG Decoding</h3>
+                            <h3 class="card-title"><a href="https://arxiv.org/abs/2609.34002" target="_blank" rel="noopener noreferrer">T-SNN: Temporal Simplicial Neural Network for EEG Decoding</a></h3>
                             <p class="card-meta">Nikita Malik, Shubhajit Roy, Mohit Kataria, Isuru Herath, Suraj Yadav, In&eacute;s Garc&iacute;a-Redondo, Dhananjay Bhaskar &bull; 2026</p>
                             <div class="card-badges">
                                 <a class="status-badge completed" href="https://arxiv.org/abs/2609.34002" target="_blank" rel="noopener noreferrer" title="arXiv:2609.34002">ArXiv</a>
@@ -85,7 +100,7 @@
 
                     <div class="card reveal">
                         <div class="card-header">
-                            <h3 class="card-title">SiST-GNN: Simultaneous Spatial-Temporal Message Passing for Dynamic Graph Representation Learning</h3>
+                            <h3 class="card-title"><a href="https://arxiv.org/abs/2605.25548" target="_blank" rel="noopener noreferrer">SiST-GNN: Simultaneous Spatial-Temporal Message Passing for Dynamic Graph Representation Learning</a></h3>
                             <p class="card-meta">Shubhajit Roy, Anirban Dasgupta • 2026</p>
                             <div class="card-badges">
                                 <a class="status-badge completed" href="https://arxiv.org/abs/2605.25548" target="_blank" rel="noopener noreferrer" title="arXiv:2605.25548">ArXiv</a>
@@ -110,7 +125,7 @@
 
                     <div class="card reveal">
                         <div class="card-header">
-                            <h3 class="card-title">FIT-GNN: Faster Inference Time for GNNs that 'FIT' in Memory Using Coarsening</h3>
+                            <h3 class="card-title"><a href="https://openreview.net/forum?id=g7r7y2I7Sz" target="_blank" rel="noopener noreferrer">FIT-GNN: Faster Inference Time for GNNs that 'FIT' in Memory Using Coarsening</a></h3>
                             <p class="card-meta">Shubhajit Roy, Hrriday Ruparel, Kishan Ved, Anirban Dasgupta • 2026</p>
                             <div class="card-badges">
                                 <a class="status-badge completed" href="https://openreview.net/forum?id=g7r7y2I7Sz" target="_blank" rel="noopener noreferrer" title="TMLR page on OpenReview">TMLR</a>
@@ -137,7 +152,7 @@
 
                     <div class="card reveal">
                         <div class="card-header">
-                            <h3 class="card-title">Local Fragments, Global Gains: Subgraph Counting using Graph Neural Networks</h3>
+                            <h3 class="card-title"><a href="https://openreview.net/forum?id=O0MtqbAh5C" target="_blank" rel="noopener noreferrer">Local Fragments, Global Gains: Subgraph Counting using Graph Neural Networks</a></h3>
                             <p class="card-meta">Shubhajit Roy, Shrutimoy Das, Binita Maity, Anant Kumar, Anirban Dasgupta • 2025</p>
                             <div class="card-badges">
                                 <a class="status-badge completed" href="https://openreview.net/forum?id=O0MtqbAh5C" target="_blank" rel="noopener noreferrer" title="OpenReview page — DiffCoAlg @ NeurIPS 2025">DiffCoAlg @ NeurIPS 2025</a>
