@@ -7,13 +7,15 @@ class PortfolioApp {
     init() {
         // Theme is already applied by inline script, just setup the toggle
         this.setupThemeToggle();
-        this.setupMobileNav();
+        this.setupNavIcons();
+        this.setupTabBar();
+        this.setupSlidingIndicator(document.getElementById('navLinks'), 'nav-indicator:pill');
+        this.setupSlidingIndicator(document.querySelector('.tab-bar'), 'nav-indicator:tabs');
         this.setupProfilePhoto();
         this.populateRecentUpdates();
         this.populateUpdatesHistory();
         this.setupSmoothScrolling();
         this.setupScrollReveal();
-        this.setupHeaderScroll();
         this.setupExpandableAbstracts();
     }
 
@@ -49,94 +51,128 @@ class PortfolioApp {
         return window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     }
 
-    // Mobile Navigation - Slide-in Drawer
-    setupMobileNav() {
-        const mobileToggle = document.getElementById('mobileToggle');
+    // Icon and short label for each nav destination, shared by the header
+    // pill and the mobile tab bar
+    navItems() {
+        const svg = paths => `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${paths}</svg>`;
+        return {
+            'index.html': ['Home', svg('<path d="M3 10.5 12 3l9 7.5"/><path d="M5 9.5V20a1 1 0 0 0 1 1h4v-6h4v6h4a1 1 0 0 0 1-1V9.5"/>')],
+            'publications.html': ['Papers', svg('<path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5"/><path d="M9 13h6M9 17h6"/>')],
+            'projects.html': ['Projects', svg('<path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>')],
+            'roles.html': ['Roles', svg('<rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/><path d="M3 13h18"/>')],
+            'blogs.html': ['Blogs', svg('<path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4z"/>')],
+            'cv.html': ['CV', svg('<rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="9" cy="10" r="2"/><path d="M6 16c.6-1.5 1.8-2.2 3-2.2s2.4.7 3 2.2M14 9h4M14 13h4"/>')]
+        };
+    }
+
+    // Prefix each header pill link with its icon
+    setupNavIcons() {
         const navLinks = document.getElementById('navLinks');
+        if (!navLinks) return;
 
-        if (!mobileToggle || !navLinks) return;
+        const items = this.navItems();
+        navLinks.querySelectorAll('a').forEach(link => {
+            const item = items[link.getAttribute('href')];
+            if (item) link.insertAdjacentHTML('afterbegin', item[1]);
+        });
+    }
 
-        // Create backdrop element
-        const backdrop = document.createElement('div');
-        backdrop.className = 'nav-backdrop';
-        document.body.appendChild(backdrop);
+    // Mobile tab bar: icon + short label for each header link, shown at the
+    // bottom of the screen on small viewports (see .tab-bar in style.css)
+    setupTabBar() {
+        const navLinks = document.getElementById('navLinks');
+        if (!navLinks) return;
 
-        // Create nav drawer footer with social links and info
-        if (!navLinks.querySelector('.nav-drawer-footer')) {
-            const drawerFooter = document.createElement('li');
-            drawerFooter.className = 'nav-drawer-footer';
-            drawerFooter.style.listStyle = 'none';
-            drawerFooter.innerHTML = `
-                <div class="nav-drawer-bio">
-                    <div class="nav-drawer-name">Shubhajit Roy</div>
-                    <div class="nav-drawer-role">PhD Student · CSE · IIT Gandhinagar</div>
-                </div>
-                <div class="nav-drawer-socials">
-                    <a href="mailto:royshubhajit@iitgn.ac.in" title="Email">
-                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.89 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
-                    </a>
-                    <a href="https://github.com/Roy-Shubhajit" target="_blank" title="GitHub">
-                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
-                    </a>
-                    <a href="https://www.linkedin.com/in/shubhajit-roy-518334139/" target="_blank" title="LinkedIn">
-                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-                    </a>
-                    <a href="https://scholar.google.com/citations?user=W2WQapAAAAAJ&hl=en" target="_blank" title="Google Scholar">
-                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M5.242 13.769L0 9.5 12 0l12 9.5-5.242 4.269C17.548 11.249 14.978 9.5 12 9.5c-2.977 0-5.548 1.748-6.758 4.269zM12 10a7 7 0 1 0 0 14 7 7 0 0 0 0-14z"/></svg>
-                    </a>
-                    <a href="https://x.com/RoyShubhajit" target="_blank" title="X / Twitter">
-                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.53 3H21L14.56 10.09L22.24 21H15.66L10.85 14.53L5.25 21H2L8.83 13.38L1.5 3H8.24L12.6 8.93L17.53 3ZM16.24 19H17.94L7.85 4.5H6.04L16.24 19Z"/></svg>
-                    </a>
-                </div>
-                <div class="nav-drawer-copyright">© 2026 Shubhajit Roy</div>
-            `;
-            navLinks.appendChild(drawerFooter);
+        const items = this.navItems();
+        const bar = document.createElement('nav');
+        bar.className = 'tab-bar';
+        bar.setAttribute('aria-label', 'Site');
+
+        navLinks.querySelectorAll('a').forEach(link => {
+            const href = link.getAttribute('href');
+            const [label, icon] = items[href] || [link.textContent.trim(), ''];
+            const tab = document.createElement('a');
+            tab.href = href;
+            tab.innerHTML = `${icon}<span>${label}</span>`;
+            if (link.classList.contains('active')) {
+                tab.classList.add('active');
+                tab.setAttribute('aria-current', 'page');
+            }
+            bar.appendChild(tab);
+        });
+
+        const wrap = document.createElement('div');
+        wrap.className = 'tab-bar-wrap';
+        wrap.appendChild(bar);
+        document.body.appendChild(wrap);
+    }
+
+    // One highlight pill that slides between tabs. Each page is a separate
+    // document, so on click we remember where the highlight was, and the next
+    // page starts it there and slides it to its own active tab.
+    setupSlidingIndicator(container, storageKey) {
+        if (!container) return;
+
+        const indicator = document.createElement('span');
+        indicator.className = 'nav-indicator';
+        indicator.setAttribute('aria-hidden', 'true');
+        container.prepend(indicator);
+        container.classList.add('has-indicator');
+
+        const links = [...container.querySelectorAll('a')];
+        const active = links.find(link => link.classList.contains('active'));
+
+        const moveTo = (rect, animate) => {
+            indicator.classList.toggle('no-anim', !animate);
+            indicator.style.width = `${rect.width}px`;
+            indicator.style.transform = `translateX(${rect.left}px)`;
+            indicator.style.opacity = '1';
+        };
+        // Relative to the container's padding box, where the indicator is positioned
+        const rectOf = link => {
+            const box = container.getBoundingClientRect();
+            const r = link.getBoundingClientRect();
+            return { left: r.left - box.left - container.clientLeft, width: r.width };
+        };
+        const visible = () => container.offsetWidth > 0;
+
+        // Re-aim at the active tab; animated, so a slide already in flight
+        // is retargeted rather than cut short
+        const settle = (animate = true) => {
+            if (active && visible()) moveTo(rectOf(active), animate);
+        };
+
+        // Start from the previous page's position, then slide in
+        let from = null;
+        try {
+            from = JSON.parse(sessionStorage.getItem(storageKey));
+            sessionStorage.removeItem(storageKey);
+        } catch (e) { /* storage unavailable: just place it */ }
+
+        if (active && visible() && from && from.width > 0) {
+            moveTo(from, false);
+            indicator.getBoundingClientRect(); // commit the start position
+            requestAnimationFrame(() => moveTo(rectOf(active), true));
+        } else {
+            settle(false);
         }
 
-        const openNav = () => {
-            navLinks.classList.add('active');
-            mobileToggle.classList.add('open');
-            backdrop.classList.add('visible');
-            document.body.style.overflow = 'hidden';
-            mobileToggle.setAttribute('aria-expanded', 'true');
-        };
-
-        const closeNav = () => {
-            navLinks.classList.remove('active');
-            mobileToggle.classList.remove('open');
-            backdrop.classList.remove('visible');
-            document.body.style.overflow = '';
-            mobileToggle.setAttribute('aria-expanded', 'false');
-        };
-
-        mobileToggle.addEventListener('click', (e) => {
-            e.preventDefault();
-            e.stopPropagation();
-            if (navLinks.classList.contains('active')) {
-                closeNav();
-            } else {
-                openNav();
-            }
+        links.forEach(link => {
+            link.addEventListener('click', () => {
+                if (!visible()) return;
+                const current = active ? rectOf(active) : rectOf(link);
+                try {
+                    sessionStorage.setItem(storageKey, JSON.stringify(current));
+                } catch (e) { /* ignore */ }
+                moveTo(rectOf(link), true); // start sliding before the page swaps
+            });
         });
 
-        // Close on backdrop click
-        backdrop.addEventListener('click', closeNav);
-
-        // Close on nav link click
-        navLinks.addEventListener('click', (e) => {
-            if (e.target.tagName === 'A') {
-                closeNav();
-            }
-        });
-
-        // Close on outside click
-        document.addEventListener('click', (e) => {
-            if (navLinks.classList.contains('active') &&
-                !mobileToggle.contains(e.target) &&
-                !navLinks.contains(e.target)) {
-                closeNav();
-            }
-        });
+        // Widths change once the web font loads, on resize, and when the
+        // page is restored from the back/forward cache
+        if (document.fonts) document.fonts.ready.then(() => settle());
+        window.addEventListener('resize', this.debounce(() => settle(), 100));
+        window.addEventListener('pageshow', e => { if (e.persisted) settle(false); });
     }
 
     // Enhanced Profile Photo Management
@@ -518,30 +554,6 @@ class PortfolioApp {
         revealElements.forEach(el => revealObserver.observe(el));
     }
 
-    // Header shrink on scroll
-    setupHeaderScroll() {
-        const header = document.querySelector('.header');
-        if (!header) return;
-
-        const scrollThreshold = 50;
-        let ticking = false;
-
-        // Sync with the next frame rather than a timer, so the header reacts
-        // in step with scrolling and does at most one update per frame
-        const update = () => {
-            header.classList.toggle('scrolled', window.scrollY > scrollThreshold);
-            ticking = false;
-        };
-
-        window.addEventListener('scroll', () => {
-            if (!ticking) {
-                ticking = true;
-                requestAnimationFrame(update);
-            }
-        }, { passive: true });
-        update();
-    }
-
     // Publication abstracts start clamped to a few lines; add a toggle only
     // where the text actually overflows
     setupExpandableAbstracts() {
@@ -591,30 +603,6 @@ class PortfolioApp {
             clearTimeout(timeout);
             timeout = setTimeout(later, wait);
         };
-    }
-
-    // Add keyboard navigation support
-    setupKeyboardNavigation() {
-        document.addEventListener('keydown', (e) => {
-            // Escape key closes mobile menu
-            if (e.key === 'Escape') {
-                const navLinks = document.getElementById('navLinks');
-                const mobileToggle = document.getElementById('mobileToggle');
-                const backdrop = document.querySelector('.nav-backdrop');
-
-                if (navLinks && navLinks.classList.contains('active')) {
-                    navLinks.classList.remove('active');
-                    if (mobileToggle) {
-                        mobileToggle.classList.remove('open');
-                        mobileToggle.setAttribute('aria-expanded', 'false');
-                    }
-                    if (backdrop) {
-                        backdrop.classList.remove('visible');
-                    }
-                    document.body.style.overflow = '';
-                }
-            }
-        });
     }
 
     // Analytics and error tracking (placeholder for future implementation)
