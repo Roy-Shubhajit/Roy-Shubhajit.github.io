@@ -108,10 +108,16 @@ class PortfolioApp {
     }
 
     // One highlight pill that slides between tabs. Each page is a separate
-    // document, so on click we remember where the highlight was, and the next
-    // page starts it there and slides it to its own active tab.
+    // document, so the slide is synced by time rather than position: a click
+    // records where the slide started and when, and the next page joins the
+    // same animation at however far along it should be by now. (Browsers
+    // keep painting the old page while the new one loads, so any position
+    // saved on the way out can already be stale by the time it is shown.)
     setupSlidingIndicator(container, storageKey) {
         if (!container) return;
+
+        const DURATION = 400;
+        const EASING = 'cubic-bezier(0.22, 1, 0.36, 1)';
 
         const indicator = document.createElement('span');
         indicator.className = 'nav-indicator';
@@ -122,57 +128,65 @@ class PortfolioApp {
         const links = [...container.querySelectorAll('a')];
         const active = links.find(link => link.classList.contains('active'));
 
-        const moveTo = (rect, animate) => {
-            indicator.classList.toggle('no-anim', !animate);
-            indicator.style.width = `${rect.width}px`;
-            indicator.style.transform = `translateX(${rect.left}px)`;
-            indicator.style.opacity = '1';
-        };
         // Relative to the container's padding box, where the indicator is positioned
-        const rectOf = link => {
+        const offsetIn = r => {
             const box = container.getBoundingClientRect();
-            const r = link.getBoundingClientRect();
             return { left: r.left - box.left - container.clientLeft, width: r.width };
         };
+        const rectOf = link => offsetIn(link.getBoundingClientRect());
         const visible = () => container.offsetWidth > 0;
+        const frame = rect => ({ transform: `translateX(${rect.left}px)`, width: `${rect.width}px` });
 
-        // Re-aim at the active tab; animated, so a slide already in flight
-        // is retargeted rather than cut short
-        const settle = (animate = true) => {
-            if (active && visible()) moveTo(rectOf(active), animate);
+        const place = rect => {
+            indicator.getAnimations().forEach(anim => anim.cancel());
+            Object.assign(indicator.style, frame(rect), { opacity: '1' });
         };
 
-        // Start from the previous page's position, then slide in
-        let from = null;
+        // Rest at `to`, animating from `from` as if the slide began `elapsed` ms ago
+        const slide = (from, to, elapsed) => {
+            place(to);
+            if (elapsed >= DURATION || this.prefersReducedMotion()) return;
+            const anim = indicator.animate([frame(from), frame(to)], { duration: DURATION, easing: EASING });
+            anim.currentTime = Math.max(0, elapsed);
+        };
+
+        let pending = null;
         try {
-            from = JSON.parse(sessionStorage.getItem(storageKey));
+            pending = JSON.parse(sessionStorage.getItem(storageKey));
             sessionStorage.removeItem(storageKey);
         } catch (e) { /* storage unavailable: just place it */ }
 
-        if (active && visible() && from && from.width > 0) {
-            moveTo(from, false);
-            indicator.getBoundingClientRect(); // commit the start position
-            requestAnimationFrame(() => moveTo(rectOf(active), true));
-        } else {
-            settle(false);
+        if (active && visible()) {
+            if (pending && pending.from && pending.from.width > 0) {
+                slide(pending.from, rectOf(active), Date.now() - pending.startedAt);
+            } else {
+                place(rectOf(active));
+            }
         }
 
+        // Start the slide on this page; the next page picks it up mid-flight
         links.forEach(link => {
-            link.addEventListener('click', () => {
-                if (!visible()) return;
-                const current = active ? rectOf(active) : rectOf(link);
+            link.addEventListener('click', e => {
+                if (!visible() || e.metaKey || e.ctrlKey || e.shiftKey || e.button !== 0) return;
+                const from = offsetIn(indicator.getBoundingClientRect());
                 try {
-                    sessionStorage.setItem(storageKey, JSON.stringify(current));
+                    sessionStorage.setItem(storageKey, JSON.stringify({ from, startedAt: Date.now() }));
                 } catch (e) { /* ignore */ }
-                moveTo(rectOf(link), true); // start sliding before the page swaps
+                slide(from, rectOf(link), 0);
             });
         });
 
-        // Widths change once the web font loads, on resize, and when the
-        // page is restored from the back/forward cache
-        if (document.fonts) document.fonts.ready.then(() => settle());
-        window.addEventListener('resize', this.debounce(() => settle(), 100));
-        window.addEventListener('pageshow', e => { if (e.persisted) settle(false); });
+        // Font swap or resize changes tab widths: re-place once nothing is moving
+        const settle = () => {
+            if (!active || !visible()) return;
+            const running = indicator.getAnimations().find(anim => anim.playState === 'running');
+            if (running) running.finished.then(() => place(rectOf(active)), () => {});
+            else place(rectOf(active));
+        };
+        if (document.fonts) document.fonts.ready.then(settle);
+        window.addEventListener('resize', this.debounce(settle, 100));
+        // Back/forward cache: snap back to this page's own tab
+        window.addEventListener('pageshow', e => { if (e.persisted) settle(); });
     }
 
     // Enhanced Profile Photo Management
