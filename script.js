@@ -216,6 +216,30 @@ class PortfolioApp {
     getUpdates() {
         const recentUpdates = [
             {
+                title: "Attended: LoG 2026",
+                description: "Attended the Learning on Graphs Conference (LoG) 2026 at Northeastern University, Boston, USA",
+                date: "2026-11-20",
+                type: "event",
+                link: "cv.html",
+                icon: "🕸️"
+            },
+            {
+                title: "Attended: WSDM 2026",
+                description: "Attended the ACM International Conference on Web Search and Data Mining (WSDM) 2026 in Boise, USA",
+                date: "2026-02-26",
+                type: "event",
+                link: "cv.html",
+                icon: "🕸️"
+            },
+            {
+                title: "Reviewer - ICASSP 2027",
+                description: "Served as Reviewer for the IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP) 2027",
+                date: "2026-11-20",
+                type: "service",
+                link: "roles.html",
+                icon: "🤝"
+            },
+            {
                 title: "Paper Accepted: FIT-GNN",
                 description: "Our paper on faster inference time for GNNs using coarsening has been accepted to the TMLR track at LoG 2026",
                 date: "2026-10-13",
